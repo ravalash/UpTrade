@@ -3,6 +3,8 @@ const mysql = require('mysql')
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3306;
+const path = require('path');
+
 
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 
