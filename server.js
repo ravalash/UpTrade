@@ -8,6 +8,12 @@ const routes = require('./routes/api/index');
 
 // Middleware:
 const app = express();
+
+// Requiring our models for syncing
+const db = require("./models");
+
+// Define middleware here
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
