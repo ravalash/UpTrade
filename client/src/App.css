@@ -1,14 +1,24 @@
 html, body {
-    background-color: #FAFFFD;
+    background-color: #342E37;
     font-family: 'Roboto', sans-serif;
+    background-image:
+      radial-gradient(#000000 20%, transparent 0),
+      radial-gradient(#000000 20%, transparent 0);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
 }
 
 #wrapper {
     padding-left: 5%;
     padding-right: 5%;
+    padding-top: 20px;
     align-items: center;
 }
 
+.card {
+    background-color: lightgray;
+}
+/* navbar */
 .navbar {
     height: 100px;
     background-color: #342E37;
@@ -17,7 +27,7 @@ html, body {
 
 .navbar-brand {
     color: #A2D729;
-    font-size: 40px;
+    font-size: 50px;
     padding-right: 15px
 }
 
@@ -33,6 +43,52 @@ html, body {
     font-style: italic; 
     color: #3c91e6;
 }
+
+/* cards */
+.card-body {
+    border: 3px solid #342E37;
+    border-radius: 5px;
+    background-color: #FAFFFD;
+    color: #342E37;
+    padding: 0
+}
+
+.card-body h5 {
+    padding-left: 10px;
+    padding-top: 8px;
+    font-size: 30px;
+    background-color: #342E37;
+    color: #3c91e6;
+    margin-bottom: 0;
+    padding-bottom: 12px;
+}
+
+.card-body hr {
+    margin-top: 0;
+    margin-bottom: 8px;
+    border-top: 1px solid #342E37;
+    width: 100%
+}
+
+/* Listing Item */
+.card#listing-item {
+    border: 0;
+}
+.card-body#listing-item {
+    border: 0;
+    padding: 10px
+}
+
+.card-body#listing-item h5 {
+    padding-left: 0;
+    padding-top: 0;
+    font-size: 20px;
+    background-color: #FAFFFD;
+    color: #e22620;
+    padding-bottom: 8px;
+}
+
+
 
 /* Tufts Blue 3c91e6 */
 /* Black Coffee 342E37 */
