@@ -1,3 +1,5 @@
+const { Sequelize } = require(".");
+
 module.exports = function (sequelize, DataTypes) {
     const Listing = sequelize.define("Listing", {
 
@@ -30,17 +32,24 @@ module.exports = function (sequelize, DataTypes) {
       },
 
       request: {
-       type: Sequelize.ARRAY(Sequelize.TEXT),
+       type: DataTypes.STRING,
         allowNull: false,
+        get() {
+            return this.getDataValue('request').split(';')
+        },
+        set(val) {
+           this.setDataValue('request',val.join(';'));
+        },
+
       },
 
 
     });
 
     Listing.associate = function (models) {
-        Listing.hasMany(models.Item, {
-          onDelete: "cascade",
-        });
+        // Listing.hasMany(models.Item, {
+        //   onDelete: "cascade",
+        // });
         Listing.belongsTo(models.User, {
           foreignKey: {
             allowNull: false, 
@@ -50,7 +59,7 @@ module.exports = function (sequelize, DataTypes) {
   
 
 
-
     return Listing;
+    
   };
   
