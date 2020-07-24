@@ -1,6 +1,7 @@
 import React from "react";
 import UserCard from "../components/UserCard"
 import NewListingsBox from "../components/NewListingsBox"
+import MyListingsBox from "../components/MyListingsBox"
 import '../App.css'
 
 
@@ -16,7 +17,7 @@ function Dashboard() {
                     <NewListingsBox />
                 </div>
                 <div className="col-3" id="my-listings-col">
-
+                    <MyListingsBox />
                 </div>
             </div>
         </div>

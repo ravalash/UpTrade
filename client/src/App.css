@@ -70,6 +70,24 @@ html, body {
     width: 100%
 }
 
+.sign-in-card {
+    width: 500px;
+}
+
+.sign-in-form {
+    padding: 6px 10px
+}
+
+.card-subtitle {
+    padding-left: 10px;
+    padding-top: 2px;
+    font-size: 10px;
+    font-style: italic;
+    background-color: #342E37;
+    margin-bottom: 0;
+    padding-bottom: 2px;
+}
+
 /* Listing Item */
 .card#listing-item {
     border: 0;
