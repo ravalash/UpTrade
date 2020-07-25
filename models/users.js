@@ -30,18 +30,48 @@ module.exports = function (sequelize, DataTypes) {
     verified: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
+    },
+    rating:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: 0,
+        max: 10,
+        isNumeric: true,
+      },
+      default: 0
+
     }
 
   });
 
   User.associate = function (models) {
     User.hasMany(models.Listing, {
+      foreignKey: {
+        allowNull: false,
+      },
       onDelete: "cascade",
     });
     User.hasMany(models.Item, {
+      foreignKey: {
+        allowNull: false,
+      },
       onDelete: "cascade",
     });
+    User.hasMany(models.Transaction, {
+      foreignKey: {
+        allowNull: true,
+      },
+      onDelete: "no action",
+    });
 
+    User.hasMany(models.Transaction, {
+      foreignKey: {
+        allowNull: true,
+      },
+      as: 'Seller',
+      onDelete: "no action",
+    });
   };
 
   User.prototype.validPassword = function (password) {
