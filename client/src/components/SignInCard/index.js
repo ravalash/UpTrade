@@ -15,7 +15,8 @@ function SignInCard() {
             },
             // withCredentials: true,
             url: "http://localhost:8080/api/user/login",
-        }).then((res) => console.log(res));
+        }).then((res) => console.log(res))
+            .then((res) => res.redirect("/dashboard"))
     };
 
     return (
