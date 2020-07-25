@@ -41,7 +41,21 @@ module.exports = function (sequelize, DataTypes) {
             onDelete: "set null",
           });
 
+          // Represents the user id of the user making the offer, not the seller
+          Transaction.belongsTo(models.User, {
+          foreignKey: {
+            allowNull: true,
+          },
+          onDelete: "set null",
+        });
 
+        Transaction.belongsTo(models.User, {
+          as: 'Seller',
+          foreignKey: {
+            allowNull: true,
+          },
+          onDelete: "set null",
+        });
           
 
       };
