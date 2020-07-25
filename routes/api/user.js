@@ -31,11 +31,13 @@ router.route("/login")
 // // otherwise send back an error
 router.route("/register").post(function (req, res) {
   console.log("user create requested");
+  console.log(req.body);
   db.User.create({
     email: req.body.email,
     password: req.body.password,
     name: req.body.name,
     verified: false,
+    rating: 0
   })
     .then(() => {
       res.redirect(307, "/api/login");

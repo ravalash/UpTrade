@@ -4,6 +4,8 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('./config/passport');
 const routes = require('./routes/index');
+const cors = require('cors');
+
 
 // Middleware:
 const app = express();
@@ -17,6 +19,7 @@ const db = require("./models");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 
 
@@ -29,9 +32,10 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-
+// Copy into sync() to force dropping database
+// { force: true }
 // Start the API server
-db.sequelize.sync({ force: true }).then(function () {
+db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
   });
