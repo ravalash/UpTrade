@@ -16,7 +16,7 @@ function RegisterCard() {
                 name: name
             },
             // withCredentials: true,
-            url: "http://localhost:8080/api/register",
+            url: "http://localhost:8080/api/user/register",
         }).then((res) => console.log(res));
     };
 
