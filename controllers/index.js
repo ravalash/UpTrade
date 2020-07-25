@@ -1,2 +1,4 @@
-const db = require("../models");
-const userController = require("../../controllers/userController");
+module.exports = {
+    userController: require("./userController")
+  };
+  
