@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 function Nav() {
   function isActive(value) {
     let page = useLocation().pathname
-    console.log(page)
+    // console.log(page)
     return 'nav-item ' + ((value === page) ? 'active' : '')
   }
 
