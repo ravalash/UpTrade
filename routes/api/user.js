@@ -6,7 +6,7 @@ const db = require("../../models");
 
 
 router.route("/login")
-.post(function (req, res) {
+.post(passport.authenticate("local"),  (req, res) => {
   console.log('login requested')
   // Sending back a password, even a hashed password, isn't a good idea
   res.json({

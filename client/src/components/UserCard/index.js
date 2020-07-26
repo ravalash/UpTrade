@@ -4,7 +4,7 @@ function UserCard() {
     return (
         <div className="card" >
             <div className="card-body">
-                <h5 class="card-title">dooski321</h5>
+                <h5 className="card-title">dooski321</h5>
                 <hr />
                 <ul>
                     <li id="number-of-keys">6 keys in inventory</li>
