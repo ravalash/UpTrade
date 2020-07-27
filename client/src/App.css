@@ -88,6 +88,10 @@ html, body {
     padding-bottom: 2px;
 }
 
+button {
+    margin-right: 10px;
+}
+
 /* Listing Item */
 .card#listing-item {
     border: 0;
