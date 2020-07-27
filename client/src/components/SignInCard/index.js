@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , Redirect } from "react-router-dom";
 import Axios from 'axios';
 
 function SignInCard() {
+    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
-    const login = () => {
-        Axios({
+    const [redirect, setRedirect] = useState(null);
+  
+    const login = async (e) => {
+        e.preventDefault();
+        try {
+        const res = await Axios({
             method: "POST",
             data: {
                 email: email,
@@ -15,10 +19,23 @@ function SignInCard() {
             },
             // withCredentials: true,
             url: "http://localhost:8080/api/user/login",
-        }).then((res) => console.log(res))
-            .then((res) => res.redirect("/dashboard"))
+        })
+        console.log(res)
+        if(res.data) {
+            setRedirect('/dashboard');
+        }
+        }
+        catch (error) {
+            console.log(error);
+            };
+    
     };
 
+
+
+    if (redirect) {
+        return <Redirect to={redirect} />
+    }
     return (
         <div className="card sign-in-card mx-auto">
             <div className="card-body">
