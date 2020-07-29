@@ -6,13 +6,16 @@ import Register from "./pages/Register.js";
 import Dashboard from "./pages/Dashboard.js";
 import Inventory from "./pages/Inventory.js";
 import Listings from "./pages/Listings.js";
+import AddInventory from "./components/AddInventory";
+import MakeListing from "./components/MakeListing"
 import "./App.css";
 
 function App() {
   return (
- 
     <Router>
-       <Nav />
+      <Nav />
+      <AddInventory />
+      <MakeListing />
       <div id="wrapper">
         <Switch>
           <Route exact path="/" component={LogIn} />
@@ -21,7 +24,7 @@ function App() {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/inventory" component={Inventory} />
           <Route exact path="/listings" component={Listings} />
-          
+
         </Switch>
       </div>
     </Router>

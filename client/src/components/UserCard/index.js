@@ -1,4 +1,5 @@
 import React from "react";
+import { AddInvBtn, ListingBtn } from "../Buttons"
 
 function UserCard() {
     return (
@@ -11,6 +12,7 @@ function UserCard() {
                     <li id="active-listings">3 active listings</li>
                     <li id="trade-offers">2 trade offers</li>
                 </ul>
+                <p><AddInvBtn /> <ListingBtn /></p>
             </div>
         </div>
     )
