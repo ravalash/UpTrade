@@ -16,6 +16,7 @@ router.route("/login")
       email: req.user.email,
       id: req.user.id,
     });
+
   });
 
 // Register POST route
@@ -29,7 +30,10 @@ router.route("/register").post(function (req, res) {
     verified: false,
     rating: 0
   })
-    .then((dbUser) => { res.json(dbUser) })
+    // .then((dbUser) => { res.json(dbUser) })
+    .then(() => {
+      res.redirect(307, "/api/user/login");
+    })
     .catch((err) => {
       res.status(401).json(err);
     });

@@ -1,21 +1,41 @@
 module.exports = function (sequelize, DataTypes) {
     const Item = sequelize.define("Item", {
 
-        title: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
           },
 
-          publisher: {
+          platform: {
             type: DataTypes.STRING,
             allowNull: false,
           },
 
-          description: {
+          genre: {
             type: DataTypes.STRING,
             allowNull: false,
           },
-
+          img: {
+            type: DataTypes.STRING,
+            allowNull: false,
+          },
+          lf1: {
+            type: DataTypes.STRING,
+            allowNull: true,
+          },
+          lf2: {
+            type: DataTypes.STRING,
+            allowNull: true,
+          },
+          lf3: {
+            type: DataTypes.STRING,
+            allowNull: true,
+          },
+          lf4: {
+            type: DataTypes.STRING,
+            allowNull: true,
+          },
+          
           key: {
             type: DataTypes.STRING,
             allowNull: false,
