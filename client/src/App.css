@@ -25,6 +25,10 @@ html, body {
     font-size: 30px;
 }
 
+p{
+    margin-left: 5px;
+}
+
 .navbar-brand {
     color: #A2D729;
     font-size: 50px;
