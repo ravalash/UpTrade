@@ -3,6 +3,10 @@ import axios from "axios";
 export default {
     searchGames: function (query) {
         return axios.get("/api/igdb/gameSearch/" + query)
+    },
+    addItem: function (game) {
+        console.log(game)
+        return axios.post("/api/item", game)
     }
     // searchGames: function (query) {
     //     return axios({
