@@ -1,25 +1,39 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Axios from 'axios';
 
 function RegisterCard() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
+    const [rating, setRating] = useState("0");
+    const [redirect, setRedirect] = useState(null);
 
-    const register = () => {
-        Axios({
-            method: "POST",
-            data: {
-                email: email,
-                password: password,
-                name: name
-            },
-            // withCredentials: true,
-            url: "http://localhost:8080/api/user/register",
-        }).then((res) => console.log(res));
-    };
-
+    const register = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await Axios({
+                method: "POST",
+                data: {
+                    email: email,
+                    password: password,
+                    name: name,
+                    rating: rating
+                },
+                // withCredentials: true,
+                url: "http://localhost:8080/api/user/register",
+            })
+            if (res.data) {
+                setRedirect("/dashboard");
+            }
+        }
+        catch (error) {
+            console.log(error);
+        };
+    }
+    if (redirect) {
+        return <Redirect to={redirect} />
+    }
     return (
         <div className="card sign-in-card mx-auto">
             <div className="card-body">
@@ -62,5 +76,3 @@ function RegisterCard() {
 }
 
 export default RegisterCard
-
-

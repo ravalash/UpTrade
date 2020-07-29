@@ -7,10 +7,10 @@ function ListingItem(props) {
                 <h5 className="card-title">{props.name}</h5>
                 <div className="row">
                     <div className="col-4">
-                        <img src={props.img} class="img-fluid" alt="Cover of game" />
+                        <img src={props.img} className="img-fluid" alt="Cover of game" />
                     </div>
                     <div className="col-8">
-                        <p><span class="badge badge-pill badge-dark">{props.platform}</span> <span class="badge badge-pill badge-primary">{props.genre}</span></p>
+                        <p><span className="badge badge-pill badge-dark">{props.platform}</span> <span className="badge badge-pill badge-primary">{props.genre}</span></p>
                         <h6>Looking for:</h6>
                         <ul>
                             <li>
@@ -26,7 +26,7 @@ function ListingItem(props) {
                                 {props.lf4}
                             </li>
                         </ul>
-                        <button type="button" class="btn btn-success">Make an Offer</button>
+                        <button type="button" className="btn btn-success">Make an Offer</button>
                     </div>
                 </div>
                 <br />
