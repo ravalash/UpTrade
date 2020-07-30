@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
+import GameCard from "../GameCard";
 
 function AddInventory() {
+    const example = [{
+        title: "The Legend of Zelda: Breath of the Wild",
+        consoles: ["6", "130"]
+    },
+    {
+        title: "The Legend of Zelda: The Wind Waker",
+        consoles: ["6", "167", "130"]
+    }]
     const [games, setGames] = useState([])
     const [search, setSearch] = useState({})
 
@@ -12,8 +21,12 @@ function AddInventory() {
 
     function handleSearch(event) {
         event.preventDefault();
-        API.searchGames(search.query).then(res => { console.log(res) })
-            .then(setSearch({}))
+        // API.searchGames(search.query)
+        //     .then(res => {
+        //         console.log(res.data)
+        setGames(example)
+        // })
+        // .then(setSearch({}))
     }
 
     return (
@@ -33,12 +46,25 @@ function AddInventory() {
                             </div>
                             <button type="button" class="btn btn-success" onClick={handleSearch}>Search for a game </button>
                         </form>
+                        <br />
+                        <div className="row mx-auto">
+                            {games.length ? (
+                                <div>
+                                    {games.map(game => {
+                                        return (
+                                            <GameCard
+                                                title={game.title}
+                                                consoles={game.consoles}
+                                            />
+                                        )
+                                    })}
+                                </div>
+                            ) : (
+                                    <></>
+                                )}
+                        </div>
+                    </div>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Add Item</button>
-                    </div>
                 </div>
             </div>
         </div>

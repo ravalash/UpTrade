@@ -78,6 +78,10 @@ p{
     width: 500px;
 }
 
+.sign-in-card p {
+    margin-left: 0px;
+}
+
 .sign-in-form {
     padding: 6px 10px
 }
@@ -90,6 +94,19 @@ p{
     background-color: #342E37;
     margin-bottom: 0;
     padding-bottom: 2px;
+}
+
+.result {
+    margin-bottom: 6px;   
+    color: #342E37;
+}
+
+.result-button {
+    padding-left: 10px;
+}
+
+.result-button p {
+    margin-bottom: 0px;
 }
 
 button {
