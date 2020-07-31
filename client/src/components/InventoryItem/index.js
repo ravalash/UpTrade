@@ -3,8 +3,8 @@ import React from "react";
 function InventoryItem(props) {
   return (
     <div>
-      {props.data.map((item, index) => (
-        <div className="card" id="listing-item" key={index}>
+      {props.data.map((item) => (
+        <div className="card" id="listing-item" key={item.id}>
           <div className="card-body" id="listing-item">
 
             <div className="row">
@@ -16,7 +16,7 @@ function InventoryItem(props) {
                 />
               </div>
               <div className="col-8">
-                <h4 className="card-title">{item.name}</h4>
+              <a href = {item.url} target="_blank" rel="noopener noreferrer"> <h4 className="card-title">{item.name}</h4></a>
                 <p>
                   <span className="badge badge-pill badge-dark">
                     {item.platform}
@@ -27,6 +27,9 @@ function InventoryItem(props) {
                 </p>
                 <p>
                   Game Key: {item.key}
+                </p>
+                <p>
+                  Summary: {item.storyline}
                 </p>
                 <button type="button" className="btn btn-success">
                   Make a Listing

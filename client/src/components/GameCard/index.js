@@ -19,7 +19,7 @@ function GameCard(props) {
     console.log(game);
     API.searchCover(game.cover)
       .then((res) => {
-        const coverUrl = res.data[0].url.replace("t_thumb", "t_cover_small");
+        const coverUrl = res.data[0].url.replace("t_thumb", "t_cover_big");
         game.cover = coverUrl;
         return game;
       })

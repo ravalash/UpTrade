@@ -24,16 +24,16 @@ function MakeListing(props) {
 
     return (
 
-        <div class="modal fade" id="make-listing" tabIndex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Let's list your game for trade</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div className="modal fade" id="make-listing" tabIndex="-1" role="dialog">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLongTitle">Let's list your game for trade</h5>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div className="modal-body">
                         <p>What game would you want to get for {props.title}?</p>
                         <form>
                             <div className="form-group">
@@ -67,9 +67,9 @@ function MakeListing(props) {
                                 )}
 
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-primary">Save changes</button>
                         </div>
 
                     </div>
