@@ -17,7 +17,7 @@ module.exports = {
     db.Item.findOne({
       where: {
         UserId: req.user.id,
-        id: req.body.id
+        id: req.body.id,
       },
     })
       .then((result) => res.json(result))
@@ -25,16 +25,25 @@ module.exports = {
   },
   // Creates a new item with the UserId supplied by the current user
   create: function (req, res) {
-    db.Item.create(req.body, {UserId: req.user.id})
-      .then((result) => res.json(result))
-      .catch((err) => res.status(422).json(err));
+    req.body.UserId = req.user;
+    console.log(req.user);
+    console.log(req.body);
+
+    db.Item.create(req.body, { UserId: req.user })
+      .then((result) =>{
+        // console.log(result);
+         res.json(result)})
+      .catch((err) => {
+        // console.log(res);
+        res.status(422).json(err);
+      });
   },
   // Updates an item by id that belongs to the current user
   update: function (req, res) {
     db.Item.update(req.body, {
       where: {
         UserId: req.user.id,
-        id: req.body.id
+        id: req.body.id,
       },
     })
       .then((result) => res.json(result))
@@ -45,7 +54,7 @@ module.exports = {
     db.Item.destroy({
       where: {
         UserId: req.user.id,
-        id: req.body.id
+        id: req.body.id,
       },
     })
       .then((result) => res.json(result))

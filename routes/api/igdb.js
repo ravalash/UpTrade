@@ -4,7 +4,10 @@ const igdbController = require("../../controllers/igdbController")
 router.route("/gameSearch/:query")
     .get(igdbController.gameSearch);
 
-// router.route("/gameInfo:id")
-//     .get(igdbController.gameInfo)
+
+    router.route("/coverSearch/:query")
+    .get(igdbController.coverSearch);
+
+
 
 module.exports = router;

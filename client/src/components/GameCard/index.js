@@ -16,8 +16,15 @@ function GameCard(props) {
 
     function saveItem(game) {
         console.log(game)
-        API.addItem(game)
+        API.searchCover(game.cover)
+        .then((res) => {
+            game.cover = res.data[0].url;
+            return game
+        })
+        .then ((result) => API.addItem(result))
+        
     }
+
     return (
         <div className="card mx-auto result">
             <a className="btn btn-success result-button" onClick={handleSelect}>
@@ -36,9 +43,12 @@ function GameCard(props) {
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button type="button" class="btn btn-primary" onClick={() => saveItem({
-                            title: props.title,
+                            name: props.title,
                             platform: document.getElementById("platform").value,
-                            gameKey: document.getElementById("gameKey").value
+                            key: document.getElementById("gameKey").value,
+                            url: props.url,
+                            cover: props.cover,
+                            storyline: props.storyline
                         })}>Add Item</button>
                     </div>
                 </form>

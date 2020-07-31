@@ -9,7 +9,7 @@ const cors = require('cors');
 
 // Middleware:
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 
 
 // Requiring our models for syncing
@@ -19,7 +19,7 @@ const db = require("./models");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+
 
 // We need to use sessions to keep track of our user's login status
 app.use(
@@ -36,6 +36,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Add routes, both API and view
 app.use(routes);
+app.use(cors());
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
