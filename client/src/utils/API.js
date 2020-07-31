@@ -9,6 +9,9 @@ export default {
         console.log(game)
         return axios.post('/api/item/', game)
     },
+    loadAllItems: function () {
+        return axios.get('api/item/')
+    },
     searchCover: function(query) {
         return axios.get("/api/igdb/coverSearch/" + query)
     }

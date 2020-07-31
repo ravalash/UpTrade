@@ -19,7 +19,8 @@ function GameCard(props) {
     console.log(game);
     API.searchCover(game.cover)
       .then((res) => {
-        game.cover = res.data[0].url;
+        const coverUrl = res.data[0].url.replace("t_thumb", "t_cover_small");
+        game.cover = coverUrl;
         return game;
       })
       .then((result) => API.addItem(result))
@@ -32,9 +33,9 @@ function GameCard(props) {
       });
   }
 
+
   if (success === true) {
     return (
-
       <Alert style={{ opacity: 1 }} type="success">
         Game Added!{" "}
       </Alert>
@@ -87,7 +88,6 @@ function GameCard(props) {
       )}
     </div>
   );
-
 }
 
 export default GameCard;
