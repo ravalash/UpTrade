@@ -1,15 +1,16 @@
 import React from "react";
 
 function Dropdown(props) {
-    const consoles = props.consoles
+    const consoles = props.consoles;
+    console.log(consoles);
     const list = consoleList(consoles)
 
     function consoleList(consoles) {
         let list = []
-        let pc = consoles.includes("6");
-        let xbox = consoles.includes("49");
-        let nintendo = consoles.includes("130");
-        let ps4 = consoles.includes("167");
+        let pc = consoles.includes(6);
+        let xbox = consoles.includes(49);
+        let nintendo = consoles.includes(130);
+        let ps4 = consoles.includes(167);
         if (pc === true) {
             list.push("Steam", "Origin", "Epic");
         } if (xbox === true) {
@@ -18,7 +19,9 @@ function Dropdown(props) {
             list.push("Nintendo Switch");
         } if (ps4 === true) {
             list.push("PlayStation 4")
-        } return list
+        }
+        console.log(list); 
+        return list
     }
 
 

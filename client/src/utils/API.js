@@ -7,7 +7,10 @@ export default {
     },
     addItem: function (game) {
         console.log(game)
-        return axios.post("/api/item", game)
+        return axios.post('/api/item/', game)
+    },
+    searchCover: function(query) {
+        return axios.get("/api/igdb/coverSearch/" + query)
     }
     // searchGames: function (query) {
     //     return axios({

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import Axios from 'axios';
 
+
 function SignInCard() {
 
     const [email, setEmail] = useState("");
@@ -9,16 +10,17 @@ function SignInCard() {
     const [redirect, setRedirect] = useState(null);
 
     const login = async (e) => {
+        console.log(`login`);
         e.preventDefault();
         try {
-            const res = await Axios({
-                method: "POST",
-                data: {
+            const res = await Axios.post('/api/user/login',{
+          
+             
                     email: email,
                     password: password,
-                },
+                
                 // withCredentials: true,
-                url: "http://localhost:8080/api/user/login",
+            
             })
             console.log(res)
             if (res.data) {

@@ -21,7 +21,7 @@ function RegisterCard() {
                     rating: rating
                 },
                 // withCredentials: true,
-                url: "http://localhost:8080/api/user/register",
+                url: "/api/user/register",
             })
             if (res.data) {
                 setRedirect("/dashboard");

@@ -12,29 +12,17 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
           },
 
-          genre: {
+          storyline: {
             type: DataTypes.STRING,
             allowNull: false,
           },
-          img: {
+          cover: {
             type: DataTypes.STRING,
             allowNull: false,
           },
-          lf1: {
+          url: {
             type: DataTypes.STRING,
-            allowNull: true,
-          },
-          lf2: {
-            type: DataTypes.STRING,
-            allowNull: true,
-          },
-          lf3: {
-            type: DataTypes.STRING,
-            allowNull: true,
-          },
-          lf4: {
-            type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
           },
           
           key: {

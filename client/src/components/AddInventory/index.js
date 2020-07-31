@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import API from "../../utils/API";
 import GameCard from "../GameCard";
+import Alert from "../Alert";
 
 function AddInventory() {
+  const didMountRef = useRef(false);
   const example = [
     {
       title: "The Legend of Zelda: Breath of the Wild",
@@ -15,22 +17,40 @@ function AddInventory() {
   ];
   const [games, setGames] = useState([]);
   const [search, setSearch] = useState({});
-
+  const [noresults, setNoResults] = useState(null);
   function handleInput(event) {
     const { name, value } = event.target;
     setSearch({ [name]: value });
   }
 
-  function handleSearch (event)  {
+  //   useEffect(() => {
+
+  //     setTimeout(() => setNoResults(null), 5000);
+  //   }, []);
+
+  useEffect(() => {
+    if (didMountRef.current) {
+      setTimeout(() => setNoResults(null), 5000);
+    } else didMountRef.current = true;
+  });
+
+  function handleSearch(event) {
     event.preventDefault();
-    API.searchGames(search.query)
-    .then((res) => {
+    API.searchGames(search.query).then((res) => {
       console.log(res.data);
-     setGames(res.data);
+      const platformGames = res.data.filter(function (game) {
+        return game.platforms.includes(6 || 49 || 130 || 167);
+      });
+      console.log(platformGames);
+
+      setGames(platformGames);
+      if (platformGames.length === 0) {
+        setNoResults(true);
+      }
       // })
       // .then(setSearch({}))
     });
-  };
+  }
 
   return (
     <div className="modal fade" id="add-inventory" tabIndex="-1" role="dialog">
@@ -66,6 +86,9 @@ function AddInventory() {
               >
                 Search for a game{" "}
               </button>
+              <Alert style={{ opacity: noresults ? 1 : 0 }} type="danger">
+                No Results Found
+              </Alert>
             </form>
             <br />
             <div className="row mx-auto">
@@ -73,7 +96,15 @@ function AddInventory() {
                 <div>
                   {games.map((game, index) => {
                     return (
-                      <GameCard key={index} title={game.name} consoles={game.platforms} />
+                      <GameCard
+                        key={index}
+                        title={game.name}
+                        consoles={game.platforms}
+                        cover={game.cover}
+                        url={game.url}
+                        storyline={game.storyline}
+
+                      />
                     );
                   })}
                 </div>
