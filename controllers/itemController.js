@@ -4,9 +4,10 @@ const db = require("../models");
 module.exports = {
   // Finds all items owned by a current user
   findAllById: function (req, res) {
+    console.log(`items requested for user ${req.user}`);
     db.Item.findAll({
       where: {
-        UserId: req.user.id,
+        UserId: req.user,
       },
     })
       .then((result) => res.json(result))
@@ -26,12 +27,9 @@ module.exports = {
   // Creates a new item with the UserId supplied by the current user
   create: function (req, res) {
     req.body.UserId = req.user;
-    console.log(req.user);
-    console.log(req.body);
-
-    db.Item.create(req.body, { UserId: req.user })
+    db.Item.create(req.body)
       .then((result) =>{
-        // console.log(result);
+        console.log(result);
          res.json(result)})
       .catch((err) => {
         // console.log(res);

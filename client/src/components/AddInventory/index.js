@@ -5,16 +5,6 @@ import Alert from "../Alert";
 
 function AddInventory() {
   const didMountRef = useRef(false);
-  const example = [
-    {
-      title: "The Legend of Zelda: Breath of the Wild",
-      consoles: ["6", "130"],
-    },
-    {
-      title: "The Legend of Zelda: The Wind Waker",
-      consoles: ["6", "167", "130"],
-    },
-  ];
   const [games, setGames] = useState([]);
   const [search, setSearch] = useState({});
   const [noresults, setNoResults] = useState(null);
@@ -38,8 +28,18 @@ function AddInventory() {
     event.preventDefault();
     API.searchGames(search.query).then((res) => {
       console.log(res.data);
+      const includedPlatforms = [6,49,130,167];
       const platformGames = res.data.filter(function (game) {
-        return game.platforms.includes(6 || 49 || 130 || 167);
+       let pass = false; 
+       game.platforms.forEach(element => {
+        
+        if  (includedPlatforms.includes(element)){
+          console.log(element);
+          pass= true;
+        }
+
+       });
+       return pass;
       });
       console.log(platformGames);
 
@@ -102,7 +102,7 @@ function AddInventory() {
                         consoles={game.platforms}
                         cover={game.cover}
                         url={game.url}
-                        storyline={game.storyline}
+                        storyline={typeof game.storyline !== 'undefined' ? game.storyline : game.summary}
 
                       />
                     );

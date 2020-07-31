@@ -4,6 +4,7 @@ let data = [{
     genre: "Adventure",
     img: "https://d2skuhm0vrry40.cloudfront.net/2017/articles/1/8/7/8/8/7/0/148430785862.jpg",
     gameKey: "22915-XY999-TTH7",
+    storyline: "Step into a world of discovery, exploration and adventure in The Legend of Zelda: Breath of the Wild, a boundary-breaking new game in the acclaimed series. Travel across fields, through forests and to mountain peaks as you discover what has become of the ruined kingdom of Hyrule in this stunning open-air adventure.",
     lf1: "Nintendo Switch adventure games",
     lf2: "Steam shooter games",
     lf3: "FIFA 20 on Origin",

@@ -74,6 +74,17 @@ p{
     width: 100%
 }
 
+.search-listings {
+    padding-left: 10px;
+    padding-top: 8px;
+    font-size: 14px;
+    background-color: #342E37;
+    color: #3c91e6;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    padding-bottom: 12px;
+}
 .sign-in-card {
     width: 500px;
 }

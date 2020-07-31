@@ -3,7 +3,7 @@ import UserCard from "../components/UserCard"
 import NewListingsBox from "../components/NewListingsBox"
 import MyListingsBox from "../components/MyListingsBox"
 import '../App.css'
-
+const data = require("../exampleData");
 
 
 function Dashboard() {
@@ -14,7 +14,7 @@ function Dashboard() {
                     <UserCard />
                 </div>
                 <div className="col-6" id="new-listings-col">
-                    <NewListingsBox />
+                    <NewListingsBox data={data} />
                 </div>
                 <div className="col-3" id="my-listings-col">
                     <MyListingsBox />
