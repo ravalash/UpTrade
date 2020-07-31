@@ -34,6 +34,7 @@ function GameCard(props) {
 
   if (success === true) {
     return (
+
       <Alert style={{ opacity: 1 }} type="success">
         Game Added!{" "}
       </Alert>
@@ -86,6 +87,7 @@ function GameCard(props) {
       )}
     </div>
   );
+
 }
 
 export default GameCard;
