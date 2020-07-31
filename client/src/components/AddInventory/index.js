@@ -28,8 +28,18 @@ function AddInventory() {
     event.preventDefault();
     API.searchGames(search.query).then((res) => {
       console.log(res.data);
+      const includedPlatforms = [6,49,130,167];
       const platformGames = res.data.filter(function (game) {
-        return game.platforms.includes(6 || 49 || 130 || 167);
+       let pass = false; 
+       game.platforms.forEach(element => {
+        
+        if  (includedPlatforms.includes(element)){
+          console.log(element);
+          pass= true;
+        }
+
+       });
+       return pass;
       });
       console.log(platformGames);
 
