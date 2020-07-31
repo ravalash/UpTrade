@@ -6,7 +6,7 @@ function InventoryItem(props) {
       {props.data.map((item) => (
         <div className="card" id="listing-item">
           <div className="card-body" id="listing-item">
-            <h5 className="card-title">{item.name}</h5>
+
             <div className="row">
               <div className="col-4">
                 <img
@@ -16,6 +16,7 @@ function InventoryItem(props) {
                 />
               </div>
               <div className="col-8">
+                <h4 className="card-title">{item.name}</h4>
                 <p>
                   <span className="badge badge-pill badge-dark">
                     {item.platform}
@@ -24,13 +25,9 @@ function InventoryItem(props) {
                     {item.genre}
                   </span>
                 </p>
-                <h6>Looking for:</h6>
-                <ul>
-                  <li>{item.lf1}</li>
-                  <li>{item.lf2}</li>
-                  <li>{item.lf3}</li>
-                  <li>{item.lf4}</li>
-                </ul>
+                <p>
+                  Game Key: {item.gameKey}
+                </p>
                 <button type="button" className="btn btn-success">
                   Make a Listing
                 </button>
