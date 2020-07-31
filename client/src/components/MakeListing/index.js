@@ -23,6 +23,7 @@ function MakeListing(props) {
     };
 
     return (
+
         <div class="modal fade" id="make-listing" tabIndex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -70,6 +71,7 @@ function MakeListing(props) {
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
+
                     </div>
                 </div>
             </div>
