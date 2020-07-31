@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import UserCard from "../components/UserCard"
 import NewListingsBox from "../components/NewListingsBox"
 import MyListingsBox from "../components/MyListingsBox"
 import '../App.css'
+import Axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
+function Dashboard(props) {
+    const [isAuth, setIsAuth] = useState(false)
 
+    useEffect(() => {
 
-function Dashboard() {
+    }, [])
+
     return (
         <div className="container" id="dashboard-container">
             <div className="row">

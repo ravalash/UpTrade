@@ -6,7 +6,6 @@ function RegisterCard() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-    const [rating, setRating] = useState("0");
     const [redirect, setRedirect] = useState(null);
 
     const register = async (e) => {
@@ -18,7 +17,6 @@ function RegisterCard() {
                     email: email,
                     password: password,
                     name: name,
-                    rating: rating
                 },
                 // withCredentials: true,
                 url: "http://localhost:8080/api/user/register",

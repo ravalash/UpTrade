@@ -24,7 +24,6 @@ function App() {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/inventory" component={Inventory} />
           <Route exact path="/listings" component={Listings} />
-
         </Switch>
       </div>
     </Router>

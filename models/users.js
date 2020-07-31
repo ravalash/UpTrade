@@ -31,7 +31,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
     },
-    rating:{
+    rating: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
@@ -40,9 +40,11 @@ module.exports = function (sequelize, DataTypes) {
         isNumeric: true,
       },
       default: 0
-
     }
-
+    // accessToken: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true
+    // }
   });
 
   User.associate = function (models) {

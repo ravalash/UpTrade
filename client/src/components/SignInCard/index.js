@@ -20,7 +20,7 @@ function SignInCard() {
                 // withCredentials: true,
                 url: "http://localhost:8080/api/user/login",
             })
-            console.log(res)
+
             if (res.data) {
                 setRedirect('/dashboard');
             }
@@ -31,11 +31,10 @@ function SignInCard() {
 
     };
 
-
-
     if (redirect) {
         return <Redirect to={redirect} />
     }
+
     return (
         <div className="card sign-in-card mx-auto">
             <div className="card-body">
