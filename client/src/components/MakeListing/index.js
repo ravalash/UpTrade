@@ -6,8 +6,9 @@ const data = require("../../exampleData");
 function MakeListing(props) {
     const [games, setGames] = useState([]);
     const [search, setSearch] = useState("");
-    const [selectedTitle, setSelectedTitle] = useState("");
-    const [selectedPlatform, setSelectedPlatform] = useState("");
+    const [listing, setListing] = useState([]);
+    // const [selectedTitle, setSelectedTitle] = useState("");
+    // const [selectedPlatform, setSelectedPlatform] = useState("");
 
     function handleInput(event) {
         const { name, value } = event.target;
@@ -20,9 +21,16 @@ function MakeListing(props) {
             .then((res) => { setGames(res.data); })
     };
 
-    // function handleAddToListing() {
+    const handleAddToListing = (e) => {
+        e.preventDefault();
+        let item = { title: e.target.getAttribute("data-title"), platform: document.getElementById("platform").value }
+        console.log(item);
+        setListing([...listing, item])
+        console.log(listing)
 
-    // }
+    }
+
+
 
     return (
         <div className="modal fade" id="make-listing" tabIndex="-1" role="dialog">
@@ -64,7 +72,7 @@ function MakeListing(props) {
                                                 id={game.id}
                                                 title={game.name}
                                                 consoles={game.platforms}
-                                            // addToListing={handleAddToListing}
+                                                onClick={handleAddToListing}
                                             />
                                         );
                                     })}

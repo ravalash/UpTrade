@@ -29,7 +29,7 @@ function Dropdown(props) {
 
 
     return (
-        <select className="dropdown" id="platform">
+        <select className="dropdown" id="platform" onChange={props.selectPlatform}>
             {list.map((con, index) => {
                 return (
                     <option key={index} className="dropdown-item" value={con}>{con}</option>

@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Dropdown from "../ConsoleDropdown";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 
 function GameTradeCard(props) {
     const [select, setSelect] = useState([]);
-    const [selectedTitle, setSelectedTitle] = useState("");
     const [selectedPlatform, setSelectedPlatform] = useState("");
-    const [selectedGame, setSelectedGame] = useState({ title: "", platform: "" });
-    const [wantedGames, setWantedGames] = useState([]);
-
-    useEffect(() => {
-        let item = { title: selectedTitle, platform: selectedPlatform }
-        // console.log(item)
-        setSelectedGame(item);
-
-    }, [selectedTitle])
 
     function handleSelect() {
         if (select === true) {
@@ -25,14 +15,8 @@ function GameTradeCard(props) {
             setSelect(true)
     }
 
-    function addToList() {
-        let plat = document.getElementById("platform").value
-        let title = props.title
-        setSelectedPlatform(plat);
-        setSelectedTitle(title)
-        // console.log(plat)
-        // console.log(title)
-        console.log(selectedGame)
+    function selectPlatform(event) {
+        setSelectedPlatform(event.target.value);
     }
 
     return (
@@ -45,11 +29,17 @@ function GameTradeCard(props) {
                     <div className="form-group">
                         <br />
                         <label htmlFor="consoleChoice">Platform:</label>
-                        <p><Dropdown consoles={props.consoles} /></p>
+                        <p><Dropdown selectPlatform={selectPlatform} consoles={props.consoles} /></p>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" className="btn btn-primary" onClick={addToList}>Add to Listing</button>
+                        <button
+                            type="button"
+                            className="btn btn-primary"
+                            data-title={props.title}
+                            onClick={props.onClick}
+                        >Add to Listing
+                        </button>
                     </div>
                 </form>
             ) : (
