@@ -3,14 +3,14 @@ import React from "react";
 function InventoryItem(props) {
   return (
     <div>
-      {props.data.map((item) => (
-        <div className="card" id="listing-item">
+      {props.data.map((item, index) => (
+        <div className="card" id="listing-item" key={index}>
           <div className="card-body" id="listing-item">
 
             <div className="row">
               <div className="col-4">
                 <img
-                  src={item.img}
+                  src={item.cover}
                   className="img-fluid"
                   alt="Cover of game"
                 />
@@ -26,7 +26,7 @@ function InventoryItem(props) {
                   </span>
                 </p>
                 <p>
-                  Game Key: {item.gameKey}
+                  Game Key: {item.key}
                 </p>
                 <button type="button" className="btn btn-success">
                   Make a Listing

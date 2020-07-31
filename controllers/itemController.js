@@ -4,9 +4,10 @@ const db = require("../models");
 module.exports = {
   // Finds all items owned by a current user
   findAllById: function (req, res) {
+    console.log(`items requested for user ${req.user}`);
     db.Item.findAll({
       where: {
-        UserId: req.user.id,
+        UserId: req.user,
       },
     })
       .then((result) => res.json(result))
