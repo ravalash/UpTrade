@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Dropdown from "../ConsoleDropdown";
 import API from "../../utils/API";
 
-function GameCard(props) {
+function GameTradeCard(props) {
     const [select, setSelect] = useState([])
 
     function handleSelect() {
@@ -14,17 +14,9 @@ function GameCard(props) {
         setSelect(true)
     }
 
-    function saveItem(game) {
-        console.log(game)
-        API.searchCover(game.cover)
-        .then((res) => {
-            game.cover = res.data[0].url;
-            return game
-        })
-        .then ((result) => API.addItem(result))
-        
+    function addToList(game) {
+        let item = '"' + game.title + ' on ' + game.platform + '"'
     }
-
     return (
         <div className="card mx-auto result">
             <a className="btn btn-success result-button" onClick={handleSelect}>
@@ -37,20 +29,12 @@ function GameCard(props) {
                         <label for="consoleChoice">Platform:</label>
                         <p><Dropdown consoles={props.consoles} /></p>
                     </div>
-                    <div class="form-group">
-                        <label for="gameKey">Enter your game key here:</label>
-                        <input type="game-key" class="form-control" id="gameKey" />
-                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" onClick={() => saveItem({
-                            name: props.title,
+                        <button type="button" class="btn btn-primary" onClick={() => addToList({
+                            title: props.title,
                             platform: document.getElementById("platform").value,
-                            key: document.getElementById("gameKey").value,
-                            url: props.url,
-                            cover: props.cover,
-                            storyline: props.storyline
-                        })}>Add Item</button>
+                        })}>Add to Listing</button>
                     </div>
                 </form>
             ) : (
@@ -60,4 +44,4 @@ function GameCard(props) {
     )
 }
 
-export default GameCard
+export default GameTradeCard

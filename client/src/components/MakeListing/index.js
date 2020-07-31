@@ -1,22 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
+import API from "../../utils/API";
+import GameTradeCard from "../GameTradeCard"
+const data = require("../../exampleData");
 
-function MakeListing() {
+function MakeListing(props) {
+    const [games, setGames] = useState([]);
+    const [search, setSearch] = useState({});
+    const ListedGames = [""]
+
+    function handleInput(event) {
+        const { name, value } = event.target;
+        setSearch({ [name]: value });
+    }
+
+    function handleSearch(event) {
+        event.preventDefault();
+        API.searchGames(search.query)
+            .then((res) => {
+                console.log(res.data);
+                setGames(res.data);
+            });
+    };
+
     return (
-        <div class="modal fade" id="make-listing" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="make-listing" tabIndex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Let's list your game for trade</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
-      </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <p>What game would you want to get for {props.title}?</p>
+                        <form>
+                            <div className="form-group">
+                                <input
+                                    className="form-control"
+                                    name="query"
+                                    placeholder="Search games"
+                                    onChange={handleInput}
+                                />
+                            </div>
+                            <button
+                                type="button"
+                                className="btn btn-success"
+                                onClick={handleSearch}
+                            >
+                                Search for a game{" "}
+                            </button>
+                        </form>
+                        <br />
+                        <div className="row mx-auto">
+                            {games.length ? (
+                                <div>
+                                    {games.map((game, index) => {
+                                        return (
+                                            <GameTradeCard key={index} title={game.name} consoles={game.platforms} />
+                                        );
+                                    })}
+                                </div>
+                            ) : (
+                                    <></>
+                                )}
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
                     </div>
                 </div>
             </div>
