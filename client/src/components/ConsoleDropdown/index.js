@@ -26,10 +26,10 @@ function Dropdown(props) {
 
 
     return (
-        <select class="dropdown" id="platform">
-            {list.map(con => {
+        <select className="dropdown" id="platform">
+            {list.map((con, index) => {
                 return (
-                    <option class="dropdown-item" value={con}>{con}</option>
+                    <option className="dropdown-item" value={con} key={index}>{con}</option>
                 )
             })}
         </select>
