@@ -1,22 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Dropdown from "../ConsoleDropdown";
 import API from "../../utils/API";
 
 function GameTradeCard(props) {
-    const [select, setSelect] = useState([])
+    const [select, setSelect] = useState([]);
+    const [selectedTitle, setSelectedTitle] = useState("");
+    const [selectedPlatform, setSelectedPlatform] = useState("");
+    const [selectedGame, setSelectedGame] = useState({ title: "", platform: "" });
+    const [wantedGames, setWantedGames] = useState([]);
+
+    useEffect(() => {
+        let item = { title: selectedTitle, platform: selectedPlatform }
+        // console.log(item)
+        setSelectedGame(item);
+
+    }, [selectedTitle])
 
     function handleSelect() {
         if (select === true) {
             setSelect(false)
-            console.log("oop")
+            // console.log("oop")
         } else
-            console.log("hello");
-        setSelect(true)
+            // console.log("hello");
+            setSelect(true)
     }
 
-    function addToList(game) {
-        let item = '"' + game.title + ' on ' + game.platform + '"'
+    function addToList() {
+        let plat = document.getElementById("platform").value
+        let title = props.title
+        setSelectedPlatform(plat);
+        setSelectedTitle(title)
+        // console.log(plat)
+        // console.log(title)
+        console.log(selectedGame)
     }
+
     return (
         <div className="card mx-auto result">
             <a className="btn btn-success result-button" onClick={handleSelect}>
@@ -24,17 +42,14 @@ function GameTradeCard(props) {
             </a>
             {(select === true) ? (
                 <form>
-                    <div class="form-group">
+                    <div className="form-group">
                         <br />
-                        <label for="consoleChoice">Platform:</label>
+                        <label htmlFor="consoleChoice">Platform:</label>
                         <p><Dropdown consoles={props.consoles} /></p>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" onClick={() => addToList({
-                            title: props.title,
-                            platform: document.getElementById("platform").value,
-                        })}>Add to Listing</button>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" className="btn btn-primary" onClick={addToList}>Add to Listing</button>
                     </div>
                 </form>
             ) : (

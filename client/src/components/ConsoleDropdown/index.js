@@ -1,8 +1,11 @@
 import React from "react";
 
+
 function Dropdown(props) {
+
+
     const consoles = props.consoles;
-    console.log(consoles);
+    // console.log(consoles);
     const list = consoleList(consoles)
 
     function consoleList(consoles) {
@@ -20,16 +23,16 @@ function Dropdown(props) {
         } if (ps4 === true) {
             list.push("PlayStation 4")
         }
-        console.log(list); 
+        // console.log(list);
         return list
     }
 
 
     return (
-        <select class="dropdown" id="platform">
-            {list.map(con => {
+        <select className="dropdown" id="platform">
+            {list.map((con, index) => {
                 return (
-                    <option class="dropdown-item" value={con}>{con}</option>
+                    <option key={index} className="dropdown-item" value={con}>{con}</option>
                 )
             })}
         </select>

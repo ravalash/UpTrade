@@ -3,8 +3,8 @@ import React from "react";
 function InventoryItem(props) {
   return (
     <div>
-      {props.data.map((item) => (
-        <div className="card" id="listing-item">
+      {props.data.map((item, index) => (
+        <div className="card" id="listing-item" key={index}>
           <div className="card-body" id="listing-item">
 
             <div className="row">

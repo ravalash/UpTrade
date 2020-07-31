@@ -6,10 +6,10 @@ function InventoryBox(props) {
     return (
         <div className="card" >
             <div className="card-body">
-                <h5 class="card-title">Inventory</h5>
+                <h5 className="card-title">Inventory</h5>
                 <hr />
                 <div className="container">
-                    <InventoryItem  data={props.data}/>
+                    <InventoryItem data={props.data} />
                 </div>
             </div>
         </div>

@@ -2,16 +2,16 @@ import axios from "axios";
 
 export default {
     searchGames: function (query) {
-        console.log(`query search = ${query}`);
+        // console.log(`query search = ${query}`);
         return axios.get("/api/igdb/gameSearch/" + query)
     },
     addItem: function (game) {
         console.log(game)
         return axios.post('/api/item/', game)
     },
-    searchCover: function(query) {
+    searchCover: function (query) {
         return axios.get("/api/igdb/coverSearch/" + query)
-    }
+    },
     // searchGames: function (query) {
     //     return axios({
     //         url: 'https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games',
@@ -23,4 +23,7 @@ export default {
     //         data: 'fields name,id; search "' + query + '";'
     //     }).then(res => { return res.data })
     // }
+    getItems: function () {
+        return axios.get("/api/item")
+    }
 }
