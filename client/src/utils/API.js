@@ -31,6 +31,6 @@ export default {
     },
     addListing: function (listing) {
         console.log(listing)
-        return axios.post('api/listing', listing)
+        return axios.post('api/listing/', listing)
     }
 }

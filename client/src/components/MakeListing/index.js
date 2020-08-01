@@ -22,22 +22,12 @@ function MakeListing(props) {
 
     const handleAddToListing = (e) => {
         e.preventDefault();
-        let item = {
-            active: true,
-            offer: false,
-            barter: false,
-            verified: false,
-            request: {
-                title: e.target.getAttribute("data-title"),
-                platform: document.getElementById("platform").value
-            },
-            itemId: e.target.getAttribute("data-id")
-        }
-
-        setListing([...listing, item])
+        let item = { title: e.target.getAttribute("data-title"), platform: e.target.getAttribute("data-platform") };
+        let listingHolder = listing;
+        listingHolder.push(item);
+        setListing(listingHolder);
         console.log(listing)
-
-        API.addListing(listing).then(res => { console.log(res) })
+        // API.addListing(listing).then(res => { console.log(res) })
     }
 
     return (
