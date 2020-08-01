@@ -17,7 +17,6 @@ function GameTradeCard(props) {
 
     function selectPlatform(event) {
         setSelectedPlatform(event.target.value);
-        console.log(selectedPlatform);
     }
 
     return (
@@ -38,6 +37,7 @@ function GameTradeCard(props) {
                             type="button"
                             className="btn btn-primary"
                             data-title={props.title}
+                            data-id={props.id}
                             onClick={props.onClick}
                         >Add to Listing
                         </button>

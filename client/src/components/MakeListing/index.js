@@ -17,6 +17,7 @@ function MakeListing(props) {
         event.preventDefault();
         API.searchGames(search.query)
             .then((res) => { setGames(res.data); })
+            .then(console.log(games))
     };
 
     const handleAddToListing = (e) => {
@@ -30,7 +31,7 @@ function MakeListing(props) {
                 title: e.target.getAttribute("data-title"),
                 platform: document.getElementById("platform").value
             },
-            itemId: e.target.getAttribute("id")
+            itemId: e.target.getAttribute("data-id")
         }
 
         setListing([...listing, item])
