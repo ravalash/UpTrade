@@ -30,9 +30,9 @@ function MakeListing(props) {
                 title: e.target.getAttribute("data-title"),
                 platform: document.getElementById("platform").value
             },
-            itemId: e.target.getAttribute(id),
-            userId: req.user.id
+            itemId: e.target.getAttribute("id")
         }
+
         setListing([...listing, item])
         console.log(listing)
 
