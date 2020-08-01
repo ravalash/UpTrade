@@ -21,7 +21,18 @@ function MakeListing(props) {
 
     const handleAddToListing = (e) => {
         e.preventDefault();
-        let item = { title: e.target.getAttribute("data-title"), platform: document.getElementById("platform").value }
+        let item = {
+            active: true,
+            offer: false,
+            barter: false,
+            verified: false,
+            request: {
+                title: e.target.getAttribute("data-title"),
+                platform: document.getElementById("platform").value
+            },
+            itemId: e.target.getAttribute(id),
+            userId: req.user.id
+        }
         setListing([...listing, item])
         console.log(listing)
 
