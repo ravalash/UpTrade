@@ -32,7 +32,7 @@ function InventoryItem(props) {
                 <p>
                   Summary: {item.storyline}
                 </p>
-                <GreenListingBtn title={item.title} /> <button type="button" className="btn btn-primary">Remove Game</button>
+                <GreenListingBtn name={item.name} id={item.id} chooseTrade={props.chooseTrade} /> <button type="button" className="btn btn-primary">Remove Game</button>
               </div>
             </div>
             <br />

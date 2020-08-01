@@ -4,7 +4,7 @@ import UserCard from "../components/UserCard";
 import InventoryBox from "../components/InventoryBox";
 
 
-function Inventory() {
+function Inventory(props) {
 
     const [savedItems, setSavedItems] = useState([]);
 
@@ -20,7 +20,7 @@ function Inventory() {
                     <UserCard />
                 </div>
                 <div className="col-9" id="new-listings-col">
-                    <InventoryBox data={savedItems} />
+                    <InventoryBox data={savedItems} chooseTrade={props.chooseTrade} />
                 </div>
             </div>
         </div>
