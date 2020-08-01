@@ -25,7 +25,11 @@ module.exports = {
   },
   // Creates a listing from req.body with UserId supplied by the currently logged in user
   create: function (req, res) {
-    db.Listing.create(req.body, {UserId: req.user.id})
+    console.log("Req.body: ", req.body);
+        console.log("Req.user: ", req.user);
+//     db.Listing.create(req.body, {UserId: req.user.id})
+     db.Listing.create(req.body)
+    
       .then((result) => res.json(result))
       .catch((err) => res.status(422).json(err));
   },
