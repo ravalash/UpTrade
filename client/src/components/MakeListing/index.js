@@ -19,16 +19,22 @@ function MakeListing(props) {
         event.preventDefault();
         API.searchGames(search.query)
             .then((res) => { setGames(res.data); })
+            .then(console.log(games))
     };
 
     const handleAddToListing = (e) => {
         e.preventDefault();
+<<<<<<< HEAD
         console.log(selectedGame);
         let item = { title: e.target.getAttribute("data-title"), platform: document.getElementById("platform").value };
+=======
+        let item = { title: e.target.getAttribute("data-title"), platform: e.target.getAttribute("data-platform") };
+>>>>>>> 2b8bfa3831f616f2707e557ac64d2272a6475a9b
         let listingHolder = listing;
         listingHolder.push(item);
         setListing(listingHolder);
         console.log(listing)
+<<<<<<< HEAD
 
         // API.addListing(listing).then(res => { console.log(res) })
     }
@@ -37,6 +43,9 @@ function MakeListing(props) {
 
         API.addListing().then(res => { console.log(res) })
 
+=======
+        // API.addListing(listing).then(res => { console.log(res) })
+>>>>>>> 2b8bfa3831f616f2707e557ac64d2272a6475a9b
     }
 
     return (

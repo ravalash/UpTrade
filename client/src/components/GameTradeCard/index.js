@@ -15,9 +15,9 @@ function GameTradeCard(props) {
             setSelect(true)
     }
 
-    function selectPlatform(event) {
-        setSelectedPlatform(event.target.value);
-        console.log(selectedPlatform);
+    const selectPlatform = (e) => {
+        let plat = e.target.value;
+        setSelectedPlatform(plat)
     }
 
     return (
@@ -38,6 +38,8 @@ function GameTradeCard(props) {
                             type="button"
                             className="btn btn-primary"
                             data-title={props.title}
+                            data-id={props.id}
+                            data-platform={selectedPlatform}
                             onClick={props.onClick}
                         >Add to Listing
                         </button>

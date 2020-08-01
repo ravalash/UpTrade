@@ -13,16 +13,15 @@ function SignInCard() {
         console.log(`login`);
         e.preventDefault();
         try {
-            const res = await Axios.post('/api/user/login',{
-          
-             
-                    email: email,
-                    password: password,
-                
+            const res = await Axios.post('/api/user/login', {
+
+
+                email: email,
+                password: password,
+
                 // withCredentials: true,
-            
+
             })
-            console.log(res)
             if (res.data) {
                 setRedirect('/dashboard');
             }
