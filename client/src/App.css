@@ -8,6 +8,24 @@ html, body {
     background-position: 0 0, 15px 15px;
 }
 
+img {
+    display: block;
+    max-width:150px;
+    max-height:300px;
+    width: auto;
+    height: auto;
+  }
+
+.match-item {
+    font-weight: bold;
+    color: green;
+}
+
+.match-item i{
+    font-weight: normal;
+    font-size: 10px
+}
+
 #wrapper {
     padding-left: 5%;
     padding-right: 5%;
