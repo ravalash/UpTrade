@@ -24,7 +24,8 @@ router.route("/register").post(function (req, res) {
     password: req.body.password,
     name: req.body.name,
     verified: false,
-    rating: 0
+    rating: 0,
+    id: 1
   })
     // .then((dbUser) => { res.json(dbUser) })
     .then(() => {
