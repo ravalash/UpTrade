@@ -8,6 +8,7 @@ import Inventory from "./pages/Inventory.js";
 import Listings from "./pages/Listings.js";
 import AddInventory from "./components/AddInventory";
 import MakeListing from "./components/MakeListing"
+import MyListings from './pages/MyListings';
 import "./App.css";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/inventory" component={Inventory} />
           <Route exact path="/listings" component={Listings} />
+          <Route exact path="/mylistings" component={MyListings} />
 
         </Switch>
       </div>

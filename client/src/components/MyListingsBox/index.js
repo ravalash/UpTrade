@@ -1,19 +1,24 @@
 import React from "react";
-import MyListingItem from "../MyListingItem"
-const Data = require("../../exampleData")
+import MyListingItem from "../MyListingItem";
 
-function MyListingsBox() {
+function MyListingsBox(props) {
+    console.log(props.data)
     return (
         <div className="card" >
             <div className="card-body">
                 <h5 className="card-title">My Listings</h5>
                 <hr />
                 <div className="container">
-                    <MyListingItem />
+                    <MyListingItem data={props.data} />
                 </div>
             </div>
         </div>
     )
 }
 
+// search fields:
+// name
+// filter:
+// platform
+// matches game in inventory
 export default MyListingsBox

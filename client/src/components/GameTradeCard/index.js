@@ -17,6 +17,7 @@ function GameTradeCard(props) {
 
     function selectPlatform(event) {
         setSelectedPlatform(event.target.value);
+        console.log(selectedPlatform);
     }
 
     return (

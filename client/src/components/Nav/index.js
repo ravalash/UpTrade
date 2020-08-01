@@ -25,6 +25,9 @@ function Nav() {
           <li className={isActive("/listings")}>
             <Link className="nav-link" to="/listings">Listings</Link>
           </li>
+          <li className={isActive("/listings")}>
+            <Link className="nav-link" to="/mylistings">My Listings</Link>
+          </li>
           <li className={isActive("/inventory")}>
             <Link className="nav-link" to="/inventory">My Inventory</Link>
           </li>

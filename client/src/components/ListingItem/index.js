@@ -3,8 +3,8 @@ import React from "react";
 function ListingItem(props) {
     return (
         <div>
-            {props.data.map((item) => (
-                <div className="card" id="listing-item">
+            {props.data.map((item, index) => (
+                <div className="card" id="listing-item" key={index}>
                     <div className="card-body" id="listing-item">
                         <h5 className="card-title">{item.name}</h5>
                         <div className="row">

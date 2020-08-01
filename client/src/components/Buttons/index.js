@@ -1,7 +1,7 @@
-import React, { UseState } from "react";
+import React from "react";
 
 
-export function AddInvBtn(props) {
+export function AddInvBtn() {
     return (
         <a type="button" className="btn btn-success" data-toggle="modal" data-target="#add-inventory">
             Add an Item
@@ -9,10 +9,21 @@ export function AddInvBtn(props) {
     );
 }
 
-export function ListingBtn(props) {
+export function GreenListingBtn(props) {
     return (
-        <a type="button" className="btn btn-warning" {...props} data-toggle="modal" data-target="#make-listing">
+        <button
+            type="button"
+            className="btn btn-success"
+            {...props}
+            data-toggle="modal"
+            data-target="#make-listing"
+            title={props.title}
+        >
             Make a Listing
-        </a>
+        </button>
     );
+}
+
+export function YellowListingBtn() {
+    return <a type='button' className="btn btn-warning" href="/inventory">Make a listing</a>
 }

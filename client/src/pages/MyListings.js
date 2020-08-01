@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import UserCard from "../components/UserCard";
-import ListingsBox from "../components/ListingsBox";
-import API from '../utils/API';
+import MyListingsBox from "../components/MyListingsBox";
+const data = require("../exampleData");
 
 function Listings() {
-
-    const [savedListings, setSavedListings] = useState([]);
-
-    useEffect(() => {
-        API.loadAllListings().then(res => { setSavedListings(res.data) })
-    }, [])
-
     return (
         <div className="container" id="dashboard-container">
             <div className="row">
@@ -18,7 +11,7 @@ function Listings() {
                     <UserCard />
                 </div>
                 <div className="col-9" id="new-listings-col">
-                    <ListingsBox data={savedListings} />
+                    <MyListingsBox data={data} />
                 </div>
             </div>
         </div>

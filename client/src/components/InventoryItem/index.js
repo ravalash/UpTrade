@@ -1,4 +1,5 @@
 import React from "react";
+import { GreenListingBtn } from '../Buttons'
 
 function InventoryItem(props) {
   return (
@@ -31,12 +32,7 @@ function InventoryItem(props) {
                 <p>
                   Summary: {item.storyline}
                 </p>
-                <button type="button" className="btn btn-success">
-                  Make a Listing
-                </button>
-                <button type="button" className="btn btn-primary">
-                  Remove Game
-                </button>
+                <GreenListingBtn title={item.title} /> <button type="button" className="btn btn-primary">Remove Game</button>
               </div>
             </div>
             <br />

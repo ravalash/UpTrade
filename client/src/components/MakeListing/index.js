@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 import GameTradeCard from "../GameTradeCard"
-const data = require("../../exampleData");
 
 function MakeListing(props) {
     const [games, setGames] = useState([]);
     const [search, setSearch] = useState("");
     const [listing, setListing] = useState([]);
-    // const [selectedTitle, setSelectedTitle] = useState("");
-    // const [selectedPlatform, setSelectedPlatform] = useState("");
+
 
     function handleInput(event) {
         const { name, value } = event.target;
@@ -24,13 +22,11 @@ function MakeListing(props) {
     const handleAddToListing = (e) => {
         e.preventDefault();
         let item = { title: e.target.getAttribute("data-title"), platform: document.getElementById("platform").value }
-        console.log(item);
         setListing([...listing, item])
         console.log(listing)
 
+        API.addListing(listing).then(res => { console.log(res) })
     }
-
-
 
     return (
         <div className="modal fade" id="make-listing" tabIndex="-1" role="dialog">
@@ -84,7 +80,7 @@ function MakeListing(props) {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Save changes</button>
+                            <button type="button" className="btn btn-primary" onClick={props.handleSaveAllListings}>Save changes</button>
                         </div>
 
                     </div>
