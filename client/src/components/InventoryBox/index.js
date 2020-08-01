@@ -9,7 +9,7 @@ function InventoryBox(props) {
                 <h5 className="card-title">Inventory</h5>
                 <hr />
                 <div className="container">
-                    <InventoryItem data={props.data} />
+                    <InventoryItem data={props.data} chooseTrade={props.chooseTrade} />
                 </div>
             </div>
         </div>

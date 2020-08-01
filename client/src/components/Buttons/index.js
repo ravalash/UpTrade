@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import GameContext from "../../utils/GameContext";
 
 
 export function AddInvBtn() {
@@ -10,6 +11,16 @@ export function AddInvBtn() {
 }
 
 export function GreenListingBtn(props) {
+
+    const { selectedGame } = useContext(GameContext);
+
+    const selectItems = (event) => {
+        event.preventDefault();
+        console.log(event);
+        console.log(selectedGame);
+
+    }
+
     return (
         <button
             type="button"
@@ -17,7 +28,8 @@ export function GreenListingBtn(props) {
             {...props}
             data-toggle="modal"
             data-target="#make-listing"
-            title={props.title}
+            name={props.name}
+            onClick={props.chooseTrade}
         >
             Make a Listing
         </button>

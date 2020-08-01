@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import API from "../../utils/API";
 import GameTradeCard from "../GameTradeCard"
+import GameContext from "../../utils/GameContext";
 
 function MakeListing(props) {
     const [games, setGames] = useState([]);
     const [search, setSearch] = useState("");
     const [listing, setListing] = useState([]);
+    const { selectedGame } = useContext(GameContext);
 
 
     function handleInput(event) {
@@ -22,12 +24,32 @@ function MakeListing(props) {
 
     const handleAddToListing = (e) => {
         e.preventDefault();
+<<<<<<< HEAD
         let item = { title: e.target.getAttribute("data-title"), platform: document.getElementById("platform").value };
+=======
+<<<<<<< HEAD
+        console.log(selectedGame);
+        let item = { title: e.target.getAttribute("data-title"), platform: document.getElementById("platform").value };
+=======
+        let item = { title: e.target.getAttribute("data-title"), platform: e.target.getAttribute("data-platform") };
+>>>>>>> 2b8bfa3831f616f2707e557ac64d2272a6475a9b
+>>>>>>> 422bc8a995ee7c23f357d3f083a120309cff857c
         let listingHolder = listing;
         listingHolder.push(item);
         setListing(listingHolder);
         console.log(listing)
+<<<<<<< HEAD
+
         // API.addListing(listing).then(res => { console.log(res) })
+    }
+
+    const submitLiting = () => {
+
+        API.addListing().then(res => { console.log(res) })
+
+=======
+        // API.addListing(listing).then(res => { console.log(res) })
+>>>>>>> 2b8bfa3831f616f2707e557ac64d2272a6475a9b
     }
 
     return (
@@ -41,7 +63,7 @@ function MakeListing(props) {
                         </button>
                     </div>
                     <div className="modal-body">
-                        <p>What game would you want to get for {props.title}?</p>
+                        <p>What game would you want to get for {props.name}?</p>
                         <form>
                             <div className="form-group">
                                 <input
@@ -82,7 +104,7 @@ function MakeListing(props) {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary" onClick={props.handleSaveAllListings}>Save changes</button>
+                            <button type="button" className="btn btn-primary" onClick={submitLiting}>Save changes</button>
                         </div>
 
                     </div>
