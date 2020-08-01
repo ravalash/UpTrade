@@ -22,7 +22,7 @@ function MakeListing(props) {
 
     const handleAddToListing = (e) => {
         e.preventDefault();
-        let item = { title: e.target.getAttribute("data-title"), platform: e.target.getAttribute("data-platform") };
+        let item = { title: e.target.getAttribute("data-title"), platform: document.getElementById("platform").value };
         let listingHolder = listing;
         listingHolder.push(item);
         setListing(listingHolder);
