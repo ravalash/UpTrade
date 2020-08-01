@@ -17,7 +17,8 @@ function RegisterCard() {
                     email: email,
                     password: password,
                     name: name,
-                    rating: 0
+                    rating: 0,
+                    id: 1
                 },
                 // withCredentials: true,
                 url: "/api/user/register",
