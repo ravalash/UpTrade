@@ -8,6 +8,7 @@ function SignInCard() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [redirect, setRedirect] = useState(null);
+    const [user, setUser] = useState({})
 
     const login = async (e) => {
         console.log(`login`);
@@ -23,6 +24,7 @@ function SignInCard() {
 
             })
             if (res.data) {
+                setUser(res.data);
                 setRedirect('/dashboard');
             }
         }
@@ -32,11 +34,13 @@ function SignInCard() {
 
     };
 
-
-
     if (redirect) {
-        return <Redirect to={redirect} />
+        return <Redirect to={{
+            pathname: redirect,
+            state: { user: user }
+        }} />
     }
+
     return (
         <div className="card sign-in-card mx-auto">
             <div className="card-body">

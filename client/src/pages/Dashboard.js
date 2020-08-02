@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import UserCard from "../components/UserCard"
 import NewListingsBox from "../components/NewListingsBox"
 import MyListingsBox from "../components/MyListingsBox"
@@ -6,7 +6,15 @@ import '../App.css'
 const data = require("../exampleData");
 
 
-function Dashboard() {
+function Dashboard(props) {
+    const [user, setUser] = useState({})
+    // console.log(user)
+
+    useEffect(() => {
+        setUser(props.location.state.user)
+        console.log(user)
+    }, [])
+
     return (
         <div className="container" id="dashboard-container">
             <div className="row">
