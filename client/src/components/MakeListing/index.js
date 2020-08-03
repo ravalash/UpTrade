@@ -3,13 +3,14 @@ import API from "../../utils/API";
 import GameTradeCard from "../GameTradeCard"
 import GameContext from "../../utils/GameContext";
 
+
 function MakeListing(props) {
     const [games, setGames] = useState([]);
     const [search, setSearch] = useState("");
     const [listing, setListing] = useState([]);
     const { selectedGame } = useContext(GameContext);
 
-
+var test="";
     function handleInput(event) {
         const { name, value } = event.target;
         setSearch({ [name]: value });
@@ -23,11 +24,15 @@ function MakeListing(props) {
 
     const handleAddToListing = (e) => {
         e.preventDefault();
-        let item = { title: e.target.getAttribute("data-title"), platform: e.target.getAttribute("data-platform") };
+        let item = { title: e.target.getAttribute("data-title"), platform: (e.target).parentElement.parentElement.firstElementChild.children[2].firstElementChild.value };
+        // platform: (e.target).parentElement.parentElement.firstElementChild.children[2].firstElementChild.value
+         test=e.target;
+         console.log(test);
         let listingHolder = listing;
         listingHolder.push(item);
+        console.log(listingHolder);
         setListing(listingHolder);
-        console.log(listing)
+        
         // API.addListing(listing).then(res => { console.log(res) })
     }
 

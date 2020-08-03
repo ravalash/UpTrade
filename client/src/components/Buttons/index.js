@@ -25,7 +25,6 @@ export function GreenListingBtn(props) {
         <button
             type="button"
             className="btn btn-success"
-            {...props}
             data-toggle="modal"
             data-target="#make-listing"
             name={props.name}
