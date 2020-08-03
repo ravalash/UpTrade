@@ -7,23 +7,18 @@ function LogIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [redirect, setRedirect] = useState(null);
-    const [user, setUser] = useState({})
+    const [userId, setUserId] = useState("")
 
     const login = async (e) => {
         console.log(`login`);
         e.preventDefault();
         try {
             const res = await Axios.post('/api/user/login', {
-
-
                 email: email,
-                password: password,
-
-                // withCredentials: true,
-
+                password: password
             })
             if (res.data) {
-                setUser(res.data);
+                setUserId(res.data.id);
                 setRedirect('/dashboard');
             }
         }
@@ -34,10 +29,7 @@ function LogIn() {
     };
 
     if (redirect) {
-        return <Redirect to={{
-            pathname: redirect,
-            state: { user: user }
-        }} />
+        return <Redirect to={redirect} />
     }
 
     return (

@@ -26,7 +26,7 @@ export default {
     //         data: 'fields name,id; search "' + query + '";'
     //     }).then(res => { return res.data })
     // }
-    loadAllListings: function () {
+    loadAllListings: function (id) {
         return axios.get("api/listing")
     },
     addListing: function (listing) {

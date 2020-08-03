@@ -3,12 +3,13 @@ import UserCard from "../components/UserCard";
 import ListingsBox from "../components/ListingsBox";
 import API from '../utils/API';
 
-function Listings() {
-
+function Listings(props) {
+    const [userId, setUserId] = useState("")
     const [savedListings, setSavedListings] = useState([]);
 
     useEffect(() => {
-        API.loadAllListings().then(res => { setSavedListings(res.data) })
+        setUserId(props.userId)
+        API.loadAllListings(userId).then(res => { setSavedListings(res.data) })
     }, [])
 
     return (

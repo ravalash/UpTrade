@@ -2,7 +2,7 @@ import React from "react";
 import ListingItem from "../ListingItem"
 
 function ListingsBox(props) {
-    console.log(props.data)
+
     return (
         <div className="card" >
             <div className="card-body">
