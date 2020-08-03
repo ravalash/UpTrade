@@ -7,13 +7,6 @@ const data = require("../exampleData");
 
 
 function Dashboard(props) {
-    const [user, setUser] = useState({})
-    // console.log(user)
-
-    useEffect(() => {
-        setUser(props.location.state.user)
-        console.log(user)
-    }, [])
 
     return (
         <div className="container" id="dashboard-container">
