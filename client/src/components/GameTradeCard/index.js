@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 import Dropdown from "../ConsoleDropdown";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 
 function GameTradeCard(props) {
-    const [select, setSelect] = useState([])
+    const [select, setSelect] = useState([]);
+    const [selectedPlatform, setSelectedPlatform] = useState("");
 
     function handleSelect() {
         if (select === true) {
             setSelect(false)
-            console.log("oop")
+            // console.log("oop")
         } else
-            console.log("hello");
-        setSelect(true)
+            // console.log("hello");
+            setSelect(true)
     }
 
-    function addToList(game) {
-        let item = '"' + game.title + ' on ' + game.platform + '"'
+    const selectPlatform = (e) => {
+        let plat = e.target.value;
+        setSelectedPlatform(plat)
     }
+
     return (
         <div className="card mx-auto result">
             <a className="btn btn-success result-button" onClick={handleSelect}>
@@ -24,17 +27,22 @@ function GameTradeCard(props) {
             </a>
             {(select === true) ? (
                 <form>
-                    <div class="form-group">
+                    <div className="form-group">
                         <br />
-                        <label for="consoleChoice">Platform:</label>
-                        <p><Dropdown consoles={props.consoles} /></p>
+                        <label htmlFor="consoleChoice">Platform:</label>
+                        <p><Dropdown selectPlatform={selectPlatform} consoles={props.consoles} /></p>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" onClick={() => addToList({
-                            title: props.title,
-                            platform: document.getElementById("platform").value,
-                        })}>Add to Listing</button>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button
+                            type="button"
+                            className="btn btn-primary"
+                            data-title={props.title}
+                            data-id={props.id}
+                            data-platform={selectedPlatform}
+                            onClick={props.onClick}
+                        >Add to Listing
+                        </button>
                     </div>
                 </form>
             ) : (

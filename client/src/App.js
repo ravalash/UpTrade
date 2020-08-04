@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import GameContext from "./utils/GameContext";
 import Nav from "./components/Nav";
 import LogIn from "./pages/LogIn.js";
 import Register from "./pages/Register.js";
@@ -7,14 +8,29 @@ import Dashboard from "./pages/Dashboard.js";
 import Inventory from "./pages/Inventory.js";
 import Listings from "./pages/Listings.js";
 import AddInventory from "./components/AddInventory";
-import MakeListing from "./components/MakeListing";
+import MakeListing from "./components/MakeListing"
+import MyListings from './pages/MyListings';
 import MakeOffer from "./components/MakeOffer";
 import ReviewOffer from "./components/ReviewOffer";
 import "./App.css";
 
 function App() {
+
+  const [GameState, setGameState] = useState({
+    selectedListingGame: ""
+  });
+
+  function chooseTrade(event) {
+    event.preventDefault()
+    setGameState({selectedListingGame: event.target.name})
+    
+  }
+
+  useEffect( () => { console.log(GameState) }, [ GameState ] );
+
   return (
     <Router>
+
       <Nav />
       <AddInventory />
       <MakeListing />
@@ -29,8 +45,10 @@ function App() {
           <Route exact path="/inventory" component={Inventory} />
           <Route exact path="/listings" component={Listings} />
 
-        </Switch>
-      </div>
+
+          </Switch>
+        </div>
+      </GameContext.Provider>
     </Router>
   );
 }
