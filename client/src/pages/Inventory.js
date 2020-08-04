@@ -1,5 +1,6 @@
 import API from "../utils/API";
 import React, { useState, useEffect } from "react";
+// import { Redirect } from "react-router-dom";
 import UserCard from "../components/UserCard";
 import InventoryBox from "../components/InventoryBox";
 
@@ -7,11 +8,26 @@ import InventoryBox from "../components/InventoryBox";
 function Inventory(props) {
 
     const [savedItems, setSavedItems] = useState([]);
+    // const [redirectInventory, setRedirectInventory] = useState(0);
+      
 
-    useEffect(() => {
-        API.loadAllItems().then((res) => setSavedItems(res.data));
-    }, []);
+  useEffect(() => {
+    console.log("inventory use effect");
+    API.loadAllItems()
+      .then((res) => {
+        console.log(res.data);
+        setSavedItems(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        // setRedirectInventory(1)
+      });
+  }, []);
 
+//   if(redirectInventory===1) {
+//     console.log('redirect from inventory')
+//   return <Redirect to="/"/>;
+// }
 
     return (
         <div className="container" id="dashboard-container">

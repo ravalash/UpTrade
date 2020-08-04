@@ -6,10 +6,11 @@ module.exports = {
   findById: function (req, res) {
     db.User.findOne({
       where: {
-        id: req.user.id,
+        id: req.user,
       },
     })
-      .then((result) => res.json(result))
+      .then((result) =>{console.log(result);
+       res.json({id: req.user, name: result.name})})
       .catch((err) => res.status(422).json(err));
   },
   // Creates a user from req.body

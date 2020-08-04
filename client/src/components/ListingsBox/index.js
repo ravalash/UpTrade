@@ -32,7 +32,7 @@ function ListingsBox(props) {
                                 <input className="form-check-input" type="checkbox" id="origin-platform-choice" value="option2" />
                                 <label className="form-check-label" htmlFor="origin-platform-choice">Origin</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div className="form-check form-check-inline">
                                 <input className="form-check-input" type="checkbox" id="epic-platform-choice" value="option3" />
                                 <label className="form-check-label" htmlFor="epic-platform-choice3">Epic</label>
                             </div>
