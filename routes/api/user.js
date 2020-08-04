@@ -36,13 +36,13 @@ router.route("/register").post(function (req, res) {
 });
 
 // Logout GET route
-router.route("logout").get(function (req, res) {
+router.route("/logout").get(function (req, res) {
   req.logout();
   res.redirect("/");
 });
 
 // User Data GET route
-router.route("data").get(function (req, res) {
+router.route("/data").get(function (req, res) {
   if (!req.user) {
     // The user is not logged in, send back an empty object
     res.json({});

@@ -1,7 +1,8 @@
-import React, { UseState } from "react";
+import React, { useContext } from "react";
+import GameContext from "../../utils/GameContext";
 
 
-export function AddInvBtn(props) {
+export function AddInvBtn() {
     return (
         <a type="button" className="btn add-inv-btn btn-success" data-toggle="modal" data-target="#add-inventory">
             Add an Item
@@ -9,12 +10,36 @@ export function AddInvBtn(props) {
     );
 }
 
-export function ListingBtn(props) {
+export function GreenListingBtn(props) {
+
+    const { selectedGame } = useContext(GameContext);
+
+    const selectItems = (event) => {
+        event.preventDefault();
+        console.log(event);
+        console.log(selectedGame);
+
+    }
+
     return (
-        <a type="button" className="btn add-list-btn btn-warning" {...props} data-toggle="modal" data-target="#make-listing">
+
+        <button
+            type="button"
+            className="btn btn-success add-list-btn"
+            data-toggle="modal"
+            data-target="#make-listing"
+            name={props.name}
+            onClick={props.chooseTrade}
+        >
+
             Make a Listing
-        </a>
+        </button>
     );
+}
+
+
+export function YellowListingBtn() {
+    return <a type='button' className="btn btn-warning" href="/inventory">Make a listing</a>
 }
 
 export function MakeOfferBtn(props) {
