@@ -29,9 +29,12 @@ function App() {
   useEffect( () => { console.log(GameState) }, [ GameState ] );
 
   return (
+
+
     <Router>
 
       <Nav />
+
       <AddInventory />
       <MakeListing />
       <MakeOffer />
@@ -50,6 +53,7 @@ function App() {
         </div>
       </GameContext.Provider>
     </Router>
+
   );
 }
 

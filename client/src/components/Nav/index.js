@@ -9,11 +9,11 @@ function Nav() {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg ">
       <p className="navbar-brand">
         UPTRADE
       </p>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button className="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
         <span className="navbar-toggler-icon"></span>
       </button>
 
