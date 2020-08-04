@@ -3,10 +3,19 @@ const db = require("../models");
 // Defining methods for the listingController
 module.exports = {
   // Finds all listings owned by the currently logged in user
+  findAll: function (req, res) {
+    db.Listing.findAll()
+      .then((result) => res.json(result))
+      .catch((err) => res.status(422).json(err));
+  },
+  
+
+
   findAllById: function (req, res) {
+    console.log('find all by id')
     db.Listing.findAll({
       where: {
-        UserId: req.user.id,
+        UserId: req.user
       },
     })
       .then((result) => res.json(result))
