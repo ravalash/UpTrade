@@ -28,18 +28,18 @@ function AddInventory() {
     event.preventDefault();
     API.searchGames(search.query).then((res) => {
       console.log(res.data);
-      const includedPlatforms = [6,49,130,167];
+      const includedPlatforms = [6, 49, 130, 167];
       const platformGames = res.data.filter(function (game) {
-       let pass = false; 
-       game.platforms.forEach(element => {
-        
-        if  (includedPlatforms.includes(element)){
-          console.log(element);
-          pass= true;
-        }
+        let pass = false;
+        game.platforms.forEach(element => {
 
-       });
-       return pass;
+          if (includedPlatforms.includes(element)) {
+            console.log(element);
+            pass = true;
+          }
+
+        });
+        return pass;
       });
       console.log(platformGames);
 
@@ -103,14 +103,13 @@ function AddInventory() {
                         cover={game.cover}
                         url={game.url}
                         storyline={typeof game.storyline !== 'undefined' ? game.storyline : game.summary}
-
                       />
                     );
                   })}
                 </div>
               ) : (
-                <></>
-              )}
+                  <></>
+                )}
             </div>
           </div>
         </div>
@@ -119,3 +118,4 @@ function AddInventory() {
   );
 }
 export default AddInventory;
+
