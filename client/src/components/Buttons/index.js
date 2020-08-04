@@ -35,6 +35,23 @@ export function GreenListingBtn(props) {
     );
 }
 
+
 export function YellowListingBtn() {
     return <a type='button' className="btn btn-warning" href="/inventory">Make a listing</a>
+}
+
+export function MakeOfferBtn(props) {
+    return (
+        <a type="button" className="btn btn-warning" data-toggle="modal" data-target="#make-offer">
+            Make an Offer
+        </a>
+    );
+}
+
+export function ReviewOfferBtn(props) {
+    return (
+        <a type="button" className="btn btn-warning" data-toggle="modal" data-target="#review-offer">
+            Review Offers
+        </a>
+    )
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { MakeOfferBtn } from "../Buttons"
 
 function ListingItem(props) {
     return (
@@ -29,7 +30,7 @@ function ListingItem(props) {
                                         {item.lf4}
                                     </li>
                                 </ul>
-                                <button type="button" className="btn btn-success">Make an Offer</button>
+                                <MakeOfferBtn />
                             </div>
                         </div>
                         <br />

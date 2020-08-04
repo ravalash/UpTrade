@@ -10,6 +10,8 @@ import Listings from "./pages/Listings.js";
 import AddInventory from "./components/AddInventory";
 import MakeListing from "./components/MakeListing"
 import MyListings from './pages/MyListings';
+import MakeOffer from "./components/MakeOffer";
+import ReviewOffer from "./components/ReviewOffer";
 import "./App.css";
 
 function App() {
@@ -28,19 +30,21 @@ function App() {
 
   return (
     <Router>
-      <GameContext.Provider value={GameState}>
-        <Nav />
-        <AddInventory />
-        <MakeListing />
-        <div id="wrapper">
-          <Switch>
-            <Route exact path="/" component={LogIn} />
-            <Route exact path="/login" component={LogIn} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/dashboard" render={(props) => <Dashboard {...props} />} />
-            <Route exact path="/inventory" render={() => <Inventory chooseTrade={chooseTrade} />} />
-            <Route exact path="/listings" component={Listings} />
-            <Route exact path="/mylistings" component={MyListings} />
+
+      <Nav />
+      <AddInventory />
+      <MakeListing />
+      <MakeOffer />
+      <ReviewOffer />
+      <div id="wrapper">
+        <Switch>
+          <Route exact path="/" component={LogIn} />
+          <Route exact path="/login" component={LogIn} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/inventory" component={Inventory} />
+          <Route exact path="/listings" component={Listings} />
+
 
           </Switch>
         </div>
@@ -50,3 +54,10 @@ function App() {
 }
 
 export default App;
+
+// in terms of front end elements to build still, we still need:
+// finalize the make a listing
+// cancel a listing (simple as a button on the my listings box)
+// make a trade offer (probably as a dropdown in the listings page or maybe also a modal)
+// review & accept or reject a trade offer (probably a modal in the my listings box on the dashboard)
+// a help page to explain stuff (that'd be real easy and feels like a good feature to have)
