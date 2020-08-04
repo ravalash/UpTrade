@@ -160,7 +160,57 @@ button {
     padding-bottom: 8px;
 }
 
+.navbar-collapse{
+    z-index: 95;
+    background: #342E37;
+    padding: 10px;
+}
 
+span.navbar-toggler-icon {
+    color:white;
+    z-index: 98;
+}
+
+@media only screen and (max-width: 800px){
+    body{
+        line-height: 1;
+    }
+    #wrapper{
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    .row{
+        margin-left: 0;
+        margin-right: 0
+    }
+    .col-3{
+        flex: none;
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+    .col-4{
+        flex: none;
+        max-width: 100%;
+    }
+    .col-8{
+        flex: none;
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+    .col-6{
+        flex: none;
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+    .col-9{
+        flex: none;
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+    .sign-in-card{
+        max-width: 100%;
+    }
+}
 
 /* Tufts Blue 3c91e6 */
 /* Black Coffee 342E37 */

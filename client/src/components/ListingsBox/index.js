@@ -11,7 +11,13 @@ function ListingsBox(props) {
                     <div className="col-6 search-option">
                         <label for="gameNameSearch">Search by game name</label>
                         <input type="game" class="form-control" id="gameNameSearch" />
-                        <button type="submit" class="btn btn-success">Search</button>
+                        <button type="submit" class="btn btn-dark">Search</button>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="match-inventory" />
+                            <label class="form-check-label" for="match-inventory">
+                                Show only listings that match my inventory
+                            </label>
+                        </div>
                     </div>
                     <div className="col-6 search-option">
                         <div className="platform-filter">
@@ -41,14 +47,24 @@ function ListingsBox(props) {
                                 <input class="form-check-input" type="checkbox" id="xbox-platform-choice" value="option3" />
                                 <label class="form-check-label" for="xbox-platform-choice">Xbox One</label>
                             </div>
+                            <hr></hr>
                         </div>
-                    </div>
-                    <div className="col-1"></div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="match-inventory" />
-                        <label class="form-check-label" for="match-inventory">
-                            Show only listings that match my inventory
-                            </label>
+                        <div className="sort-by-toggle">
+                            <label for="sort-by-toggle">Sort by:</label>
+                            <br></br>
+                            <div className="row">
+                                <div className="col-6 sort-by">
+                                    <button className='btn btn-sm btn-dark'>&#x2191;</button>
+                                    <button className='btn btn-sm btn-dark'>&#x2193;</button>
+                                    <br></br>Alphabetical
+                            </div>
+                                <div className="col-6 sort-by">
+                                    <button className='btn btn-sm btn-dark'>&#x2191;</button>
+                                    <button className='btn btn-sm btn-dark'>&#x2193;</button>
+                                    <br></br>Date posted
+                            </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <hr />
@@ -56,7 +72,7 @@ function ListingsBox(props) {
                     <ListingItem data={props.data} />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

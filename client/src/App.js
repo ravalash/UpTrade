@@ -14,24 +14,28 @@ import "./App.css";
 
 function App() {
   return (
+
+
     <Router>
       <Nav />
-      <AddInventory />
-      <MakeListing />
-      <MakeOffer />
-      <ReviewOffer />
-      <div id="wrapper">
-        <Switch>
-          <Route exact path="/" component={LogIn} />
-          <Route exact path="/login" component={LogIn} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/inventory" component={Inventory} />
-          <Route exact path="/listings" component={Listings} />
-
-        </Switch>
+      <div>
+        <AddInventory />
+        <MakeListing />
+        <MakeOffer />
+        <ReviewOffer />
+        <div id="wrapper">
+          <Switch>
+            <Route exact path="/" component={LogIn} />
+            <Route exact path="/login" component={LogIn} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/inventory" component={Inventory} />
+            <Route exact path="/listings" component={Listings} />
+          </Switch>
+        </div>
       </div>
     </Router>
+
   );
 }
 
