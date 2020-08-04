@@ -43,8 +43,9 @@ function MyListingItem(props) {
         //     ))
         //     }
         // </div>
-        <p>My listing item</p>
         <div>
+        <p>My listing item</p>
+       
             <div className="card" id="listing-item">
                 <div className="card-body" id="listing-item">
                     <h5 className="card-title">Portal 2</h5>
