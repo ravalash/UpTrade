@@ -13,13 +13,14 @@ function MakeListing(props) {
     const { name, value } = event.target;
     setSearch({ [name]: value });
   }
-
+  
   function handleSearch(event) {
     event.preventDefault();
     API.searchGames(search.query).then((res) => {
       setGames(res.data);
     });
   }
+
 
   const submitLiting = () => {
     const newListing = {

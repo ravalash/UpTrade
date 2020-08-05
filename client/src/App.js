@@ -38,7 +38,7 @@ function App() {
   console.log(GameState);
   
   return (
-    <Router>
+<Router>
       <GameContext.Provider value={GameState}>
         <Nav />
         <AddInventory />

@@ -91,7 +91,7 @@ function AddInventory() {
               </Alert>
             </form>
             <br />
-            <div className="row mx-auto">
+            <div className="row">
               {games.length ? (
                 <div>
                   {games.map((game, index) => {
