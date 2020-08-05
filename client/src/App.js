@@ -22,7 +22,7 @@ function App() {
 
   function chooseTrade(event) {
     event.preventDefault()
-    setGameState({selectedListingGame: event.target.name})
+    setGameState({selectedListingGame: event.target.getAttribute('data-id')})
     
   }
 

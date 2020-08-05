@@ -3,6 +3,7 @@ import { ReviewOfferBtn } from "../Buttons"
 
 function MyListingItem(props) {
     let isOffer = true
+    console.log(props.data);
 
 
     return (
