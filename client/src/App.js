@@ -39,6 +39,7 @@ function App() {
             <Route exact path="/" component={LogIn} />
             <Route exact path="/login" component={LogIn} />
             <Route exact path="/register" component={Register} />
+            {/* <Route exact path="/register" render={() => true ? <LogIn/> : <Register/>} /> */}
             <Route exact path="/dashboard" render={(props) => <Dashboard {...props} />} />
             <Route exact path="/inventory" render={() => <Inventory chooseTrade={chooseTrade} />} />
             <Route exact path="/listings" component={Listings} />

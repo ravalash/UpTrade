@@ -22,7 +22,7 @@ const data = require("../exampleData");
                     <NewListingsBox data={data} />
                 </div>
                 <div className="col-3" id="my-listings-col">
-                    <MyListingsBox />
+                    {/* <MyListingsBox /> */}
                 </div>
             </div>
         </div>
