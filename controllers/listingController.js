@@ -43,12 +43,29 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
 
+  //Finds non secure info for one listing by ID
+  findInfoById: function (req, res) {
+    console.log(`load info for ${req.params.id}`);
+    db.Listing.findOne({
+      where: {
+        active: 1,
+        id: req.params.id,
+      },
+      attributes: ["request"],
+    })
+      .then((result) => {
+        res.json(JSON.parse(result.request));
+      })
+      .catch((err) => res.status(422).json(err));
+  },
+
   // Finds one listing by id owned by the currently logged in user
   findOneById: function (req, res) {
+    console.log(`load listings for ${req.params.id}`);
     db.Listing.findOne({
       where: {
         UserId: req.user.id,
-        id: req.body.id,
+        id: req.params.id,
       },
     })
       .then((result) => res.json(result))

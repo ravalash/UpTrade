@@ -71,7 +71,7 @@ function ListingsBox(props) {
                 </div>
                 <hr />
                 <div className="container">
-                    <ListingItem data={props.data} />
+                    <ListingItem data={props.data} newOffer={props.newOffer}/>
                 </div>
             </div>
         </div >

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import GameContext from "../../utils/GameContext";
 
 
 export function AddInvBtn() {
@@ -39,7 +38,7 @@ export function YellowListingBtn() {
 
 export function MakeOfferBtn(props) {
     return (
-        <a type="button" className="btn make-offer-btn btn-warning" data-toggle="modal" data-target="#make-offer">
+        <a type="button" className="btn make-offer-btn btn-warning" data-toggle="modal" data-target="#make-offer" onClick={props.newOffer} data-id={props.id}>
             Make an Offer
         </a>
     );

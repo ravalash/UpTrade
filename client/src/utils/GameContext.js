@@ -1,7 +1,8 @@
 import React from "react";
 
 const GameContext = React.createContext({
-  selectedGame: ""
+  // selectedGame: "",
+  // newOfferGame: 2
   // mood: "",
   // lifeLongLearner: false,
   // excitementLevel: 0
