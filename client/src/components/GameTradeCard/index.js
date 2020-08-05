@@ -38,7 +38,7 @@ function GameTradeCard(props) {
                             type="button"
                             className="btn btn-primary"
                             data-title={props.title}
-                            data-id={props.id}
+                            id={props.id}
                             data-platform={selectedPlatform}
                             onClick={props.onClick}
                         >Add to Listing
@@ -53,3 +53,5 @@ function GameTradeCard(props) {
 }
 
 export default GameTradeCard
+
+// before adding a game: className="btn btn-secondary"
