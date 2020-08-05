@@ -5,7 +5,10 @@ function Nav() {
   function isActive(value) {
     let page = useLocation().pathname
     // console.log(page)
-    return 'nav-item ' + ((value === page) ? 'active' : '')
+    if (page !== "/mylistings") {
+      return 'nav-item ' + ((value === page) ? 'active' : '')
+    }
+    else { return 'nav-item ' + ((value === "/listings") ? 'active' : '') }
   }
 
   return (
@@ -24,9 +27,6 @@ function Nav() {
           </li>
           <li className={isActive("/listings")}>
             <Link className="nav-link" to="/listings">Listings</Link>
-          </li>
-          <li className={isActive("/listings")}>
-            <Link className="nav-link" to="/mylistings">My Listings</Link>
           </li>
           <li className={isActive("/inventory")}>
             <Link className="nav-link" to="/inventory">My Inventory</Link>

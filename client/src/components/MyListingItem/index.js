@@ -8,7 +8,6 @@ function MyListingItem(props) {
   return (
     <div>
       {props.data.filter((x) => x.Item !== undefined).map((item) => (
-
     //   <p>My listing item</p>
 
       <div className="card" id="listing-item" key={item.id}>
@@ -20,7 +19,7 @@ function MyListingItem(props) {
               <span className="badge badge-pill badge-primary">Adventure</span>
             </p>
             {item.Item.offer ===1 ? <ReviewOfferBtn /> : <></>}
-            <button type="button" className="btn btn-success">
+            <button type="button" className="btn cancel-btn">
               Cancel Listing
             </button>
           </div>
