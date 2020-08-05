@@ -9,7 +9,7 @@ module.exports = {
         id: req.user,
       },
     })
-      .then((result) =>{console.log(result);
+      .then((result) =>{
        res.json({id: req.user, name: result.name})})
       .catch((err) => res.status(422).json(err));
   },

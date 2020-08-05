@@ -4,36 +4,12 @@ import NewListingsBox from "../components/NewListingsBox"
 import MyListingsBox from "../components/MyListingsBox"
 import { Redirect } from "react-router-dom";
 import '../App.css'
-import API from "../utils/API";
 
 
 function Dashboard(props) {
 
 const data = require("../exampleData");
 
-
-const [redirectDashboard, setRedirectDashboard] = useState(0);
-
-
-// useEffect(() => {
-//     console.log("dashboard use effect");
-//     API.checkLogin()
-//       .then((res) => {
-//         console.log(res);
-        
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//         setRedirectDashboard(1)
-//       });
-//   }, []);
-
-
-
-  if(redirectDashboard===1) {
-      console.log('redirect from dashboard')
-    return <Redirect to="/"/>;
-  }
 
 
     return (
