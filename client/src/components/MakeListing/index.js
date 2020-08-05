@@ -27,12 +27,12 @@ function MakeListing(props) {
       offer: 0,
       barter: 1,
       verified: 0,
-      request: listing,
+      request: JSON.stringify(listing),
       ItemId: selectedListingGame,
     };
     API.addListing(newListing).then((res) => {
       console.log(res);
-    });
+    }).catch(err => console.log(err));
   };
 
   const handleAddToListing = (e) => {
@@ -47,7 +47,6 @@ function MakeListing(props) {
 
     let listingHolder = listing;
     listingHolder.push(item);
-    console.log(listingHolder);
     setListing(listingHolder);
 
     // API.addListing(listing).then(res => { console.log(res) })

@@ -8,39 +8,39 @@ module.exports = {
       include: [
         {
           model: db.Item,
-          required: true
+          required: true,
         },
       ],
     })
-      .then((result) => res.json(result))
+      .then((result) => {
+        console.log(result);
+        result.forEach((element) => {
+          console.log(element.request);
+          element.request = JSON.parse(element.request);
+        });
+        console.log(result);
+        res.json(result);
+      })
       .catch((err) => res.status(422).json(err));
   },
-  
-
 
   findAllById: function (req, res) {
-    console.log('find all by id')
+    console.log("find all by id");
     db.Listing.findAll({
       where: {
-        UserId: req.user
+        UserId: req.user,
       },
     })
       .then((result) => res.json(result))
       .catch((err) => res.status(422).json(err));
   },
 
-
-
-
-
-
-
   // Finds one listing by id owned by the currently logged in user
   findOneById: function (req, res) {
     db.Listing.findOne({
       where: {
         UserId: req.user.id,
-        id: req.body.id
+        id: req.body.id,
       },
     })
       .then((result) => res.json(result))
@@ -48,8 +48,7 @@ module.exports = {
   },
   // Creates a listing from req.body with UserId supplied by the currently logged in user
   create: function (req, res) {
-    
-    req.body.UserId = req.user
+    req.body.UserId = req.user;
     console.log(req.body);
     db.Listing.create(req.body)
       .then((result) => res.json(result))
@@ -60,7 +59,7 @@ module.exports = {
     db.Listing.update(req.body, {
       where: {
         UserId: req.user.id,
-        id: req.body.id
+        id: req.body.id,
       },
     })
       .then((result) => res.json(result))
@@ -71,7 +70,7 @@ module.exports = {
     db.Listing.destroy({
       where: {
         UserId: req.user.id,
-        id: req.body.id
+        id: req.body.id,
       },
     })
       .then((result) => res.json(result))

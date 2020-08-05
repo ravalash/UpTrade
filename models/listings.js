@@ -40,12 +40,7 @@ module.exports = function (sequelize, DataTypes) {
     request: {
       type: DataTypes.STRING,
       allowNull: false,
-      get() {
-        return this.getDataValue("request").split(";");
-      },
-      set(val) {
-        this.setDataValue("request", val.join(";"));
-      },
+      
     },
   });
 
