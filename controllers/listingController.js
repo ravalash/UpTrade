@@ -13,12 +13,9 @@ module.exports = {
       ],
     })
       .then((result) => {
-        console.log(result);
         result.forEach((element) => {
-          console.log(element.request);
           element.request = JSON.parse(element.request);
         });
-        console.log(result);
         res.json(result);
       })
       .catch((err) => res.status(422).json(err));
@@ -27,11 +24,22 @@ module.exports = {
   findAllById: function (req, res) {
     console.log("find all by id");
     db.Listing.findAll({
+      include: [
+        {
+          model: db.Item,
+          required: true,
+        },
+      ],
       where: {
         UserId: req.user,
       },
     })
-      .then((result) => res.json(result))
+      .then((result) => {
+        result.forEach((element) => {
+          element.request = JSON.parse(element.request);
+        });
+        res.json(result);
+      })
       .catch((err) => res.status(422).json(err));
   },
 
