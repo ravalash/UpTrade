@@ -15,9 +15,5 @@ function MyListingsBox(props) {
     )
 }
 
-// search fields:
-// name
-// filter:
-// platform
-// matches game in inventory
+
 export default MyListingsBox

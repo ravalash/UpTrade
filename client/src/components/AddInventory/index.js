@@ -118,4 +118,3 @@ function AddInventory() {
   );
 }
 export default AddInventory;
-

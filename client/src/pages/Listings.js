@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from "react";
-// import { Redirect } from "react-router-dom";
 import UserCard from "../components/UserCard";
 import ListingsBox from "../components/ListingsBox";
 import { Link } from "react-router-dom";
 import API from '../utils/API';
 
 function Listings() {
-    const [allListings, setAllListings] = useState([]);
-    //   const [redirectListing, setRedirectListing] = useState(0);
+  const [allListings, setAllListings] = useState([]);
+  
 
-
-    useEffect(() => {
-        console.log("listing use effect");
-        API.loadAllListings()
-            .then((res) => {
-                console.log(res);
-                setAllListings(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-                // setRedirectListing(1)
-            });
-    }, []);
+  useEffect(() => {
+    console.log("listing use effect");
+    API.loadAllListings()
+      .then((res) => {
+        // console.log(res);
+        setAllListings(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
     //   if(redirectListing===1) {
     //       console.log('redirect from listings')
