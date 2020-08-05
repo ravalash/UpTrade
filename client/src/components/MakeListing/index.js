@@ -8,9 +8,11 @@ function MakeListing(props) {
     const [games, setGames] = useState([]);
     const [search, setSearch] = useState("");
     const [listing, setListing] = useState([]);
+    // const [btnText, setBtnText] = useState("Add a listing");
+    // const [btnClass, setBtnClass] = useState("btn btn-primary")
     const { selectedGame } = useContext(GameContext);
 
-var test="";
+    var test = "";
     function handleInput(event) {
         const { name, value } = event.target;
         setSearch({ [name]: value });
@@ -24,16 +26,17 @@ var test="";
 
     const handleAddToListing = (e) => {
         e.preventDefault();
-        let item = { title: e.target.getAttribute("data-title"), platform: (e.target).parentElement.parentElement.firstElementChild.children[2].firstElementChild.value };
+        let item = {
+            title: e.target.getAttribute("data-title"),
+            platform: (e.target).parentElement.parentElement.firstElementChild.children[2].firstElementChild.value
+        };
         // platform: (e.target).parentElement.parentElement.firstElementChild.children[2].firstElementChild.value
-         test=e.target;
-         console.log(test);
         let listingHolder = listing;
         listingHolder.push(item);
-        console.log(listingHolder);
         setListing(listingHolder);
-        
-        // API.addListing(listing).then(res => { console.log(res) })
+        let id = e.target.getAttribute("id");
+        document.getElementById(id).innerHTML = "Game Added";
+        document.getElementById(id).className = "btn btn-warning";
     }
 
     return (
@@ -77,6 +80,8 @@ var test="";
                                                 title={game.name}
                                                 consoles={game.platforms}
                                                 onClick={handleAddToListing}
+
+
                                             />
                                         );
                                     })}
