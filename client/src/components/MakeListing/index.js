@@ -30,9 +30,11 @@ function MakeListing(props) {
       request: JSON.stringify(listing),
       ItemId: selectedListingGame,
     };
-    API.addListing(newListing).then((res) => {
-      console.log(res);
-    }).catch(err => console.log(err));
+    API.addListing(newListing)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleAddToListing = (e) => {
@@ -43,13 +45,12 @@ function MakeListing(props) {
         e.target.parentElement.parentElement.firstElementChild.children[2]
           .firstElementChild.value,
     };
-    // platform: (e.target).parentElement.parentElement.firstElementChild.children[2].firstElementChild.value
-
     let listingHolder = listing;
     listingHolder.push(item);
     setListing(listingHolder);
-
-    // API.addListing(listing).then(res => { console.log(res) })
+    let id = e.target.getAttribute("id");
+    document.getElementById(id).innerHTML = "Game Added";
+    document.getElementById(id).className = "btn btn-warning";
   };
 
   return (
