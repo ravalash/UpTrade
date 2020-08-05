@@ -3,6 +3,7 @@ import { ReviewOfferBtn } from "../Buttons"
 
 function MyListingItem(props) {
     let isOffer = true
+    console.log(props.data);
 
 
     return (
@@ -43,9 +44,9 @@ function MyListingItem(props) {
         //     ))
         //     }
         // </div>
-
         <div>
-            <p>My listing item</p>
+        <p>My listing item</p>
+       
             <div className="card" id="listing-item">
                 <div className="card-body" id="listing-item">
                     <h5 className="card-title">Portal 2</h5>

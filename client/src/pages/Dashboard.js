@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import UserCard from "../components/UserCard"
 import NewListingsBox from "../components/NewListingsBox"
 import MyListingsBox from "../components/MyListingsBox"
+import { Redirect } from "react-router-dom";
 import '../App.css'
-const data = require("../exampleData");
 
 
 function Dashboard(props) {
+
+const data = require("../exampleData");
+
+
 
     return (
         <div className="container" id="dashboard-container">

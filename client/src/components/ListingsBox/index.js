@@ -2,6 +2,7 @@ import React from "react";
 import ListingItem from "../ListingItem"
 
 function ListingsBox(props) {
+    
 
     return (
         <div className="card" >
@@ -10,11 +11,11 @@ function ListingsBox(props) {
                 <div className="search-listings form-group row">
                     <div className="col-6 search-option">
                         <label for="gameNameSearch">Search by game name</label>
-                        <input type="game" class="form-control" id="gameNameSearch" />
-                        <button type="submit" class="btn btn-dark">Search</button>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="match-inventory" />
-                            <label class="form-check-label" for="match-inventory">
+                        <input type="game" className="form-control" id="gameNameSearch" />
+                        <button type="submit" className="btn btn-dark">Search</button>
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" id="match-inventory" />
+                            <label className="form-check-label" for="match-inventory">
                                 Show only listings that match my inventory
                             </label>
                         </div>
@@ -32,7 +33,7 @@ function ListingsBox(props) {
                                 <input className="form-check-input" type="checkbox" id="origin-platform-choice" value="option2" />
                                 <label className="form-check-label" htmlFor="origin-platform-choice">Origin</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div className="form-check form-check-inline">
                                 <input className="form-check-input" type="checkbox" id="epic-platform-choice" value="option3" />
                                 <label className="form-check-label" htmlFor="epic-platform-choice3">Epic</label>
                             </div>

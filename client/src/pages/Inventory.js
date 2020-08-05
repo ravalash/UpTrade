@@ -7,10 +7,21 @@ import InventoryBox from "../components/InventoryBox";
 function Inventory(props) {
 
     const [savedItems, setSavedItems] = useState([]);
+      
 
-    useEffect(() => {
-        API.loadAllItems().then((res) => setSavedItems(res.data));
-    }, []);
+  useEffect(() => {
+    console.log("inventory use effect");
+    API.loadAllItems()
+      .then((res) => {
+        console.log(res.data);
+        setSavedItems(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        // setRedirectInventory(1)
+      });
+  }, []);
+
 
 
     return (
