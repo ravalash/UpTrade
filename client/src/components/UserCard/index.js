@@ -28,7 +28,7 @@ function UserCard() {
     API.checkLogin()
       .then((res) => {
         console.log(res.data);
-        setUserData({...userData, name: res.data.name})
+        setUserData({ ...userData, name: res.data.name })
       })
       .catch((err) => {
         console.log(err);
