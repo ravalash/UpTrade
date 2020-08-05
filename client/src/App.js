@@ -8,40 +8,65 @@ import Dashboard from "./pages/Dashboard.js";
 import Inventory from "./pages/Inventory.js";
 import Listings from "./pages/Listings.js";
 import AddInventory from "./components/AddInventory";
-import MakeListing from "./components/MakeListing"
-import MyListings from './pages/MyListings';
+import MakeListing from "./components/MakeListing";
+import MyListings from "./pages/MyListings";
 import MakeOffer from "./components/MakeOffer";
 import ReviewOffer from "./components/ReviewOffer";
 import "./App.css";
 
 function App() {
-
   const [GameState, setGameState] = useState({
-    selectedListingGame: ""
+    selectedListingGame: "",
+    newOfferGame: ""
   });
 
   function chooseTrade(event) {
-    event.preventDefault()
-    setGameState({selectedListingGame: event.target.getAttribute('data-id')})    
+    event.preventDefault();
+    setGameState({ selectedListingGame: event.target.getAttribute("data-id") });
   }
 
-  useEffect(() => { console.log(GameState) }, [GameState]);
+  function newOffer(event) {
+    event.preventDefault();
+    console.log(event.target);
+    setGameState({ newOfferGame: event.target.getAttribute("data-id") });
+  }
 
+  useEffect(() => {console.log('GameState changed');
+    console.log(GameState);
+  }, [GameState]);
+
+  console.log(GameState);
+  
   return (
 <Router>
       <GameContext.Provider value={GameState}>
         <Nav />
         <AddInventory />
         <MakeListing />
+        <MakeOffer />
+        <ReviewOffer />
         <div id="wrapper">
           <Switch>
             <Route exact path="/" component={LogIn} />
             <Route exact path="/login" component={LogIn} />
             <Route exact path="/register" component={Register} />
             {/* <Route exact path="/register" render={() => true ? <LogIn/> : <Register/>} /> */}
-            <Route exact path="/dashboard" render={(props) => <Dashboard {...props} />} />
-            <Route exact path="/inventory" render={() => <Inventory chooseTrade={chooseTrade} />} />
-            <Route exact path="/listings" component={Listings} />
+            <Route
+              exact
+              path="/dashboard"
+              render={(props) => <Dashboard {...props} />}
+            />
+            <Route
+              exact
+              path="/inventory"
+              render={() => <Inventory chooseTrade={chooseTrade} />}
+            />
+            <Route
+              exact
+              path="/listings"
+              render={() => <Listings newOffer={newOffer} />}
+            />
+            {/* <Route exact path="/listings" component={Listings} /> */}
             <Route exact path="/mylistings" component={MyListings} />
           </Switch>
         </div>

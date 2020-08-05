@@ -32,6 +32,15 @@ export default {
     console.log("load my listings");
     return axios.get("api/listing/user");
   },
+  loadOneListing: function(id){
+    console.log(`load detasils for listing ${id}`);
+    return axios.get(`api/listing/byid/${id}`)
+  },
+  loadInfoListing: function(id){
+    console.log(`load non secure information for listing ${id}`);
+    return axios.get(`api/listing/info/${id}`)
+  },
+  
 
   addListing: function (listing) {
     console.log(listing);

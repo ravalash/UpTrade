@@ -4,7 +4,7 @@ import ListingsBox from "../components/ListingsBox";
 import { Link } from "react-router-dom";
 import API from '../utils/API';
 
-function Listings() {
+function Listings(props) {
   const [allListings, setAllListings] = useState([]);
   
 
@@ -38,7 +38,7 @@ function Listings() {
                     </div>
                 </div>
                 <div className="col-9" id="new-listings-col">
-                    <ListingsBox data={allListings} />
+                    <ListingsBox data={allListings} newOffer={props.newOffer}/>
                 </div>
             </div>
         </div>

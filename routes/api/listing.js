@@ -4,6 +4,9 @@ const listingController = require("../../controllers/listingController");
 //matches api/listing/byid/:id
 router.route("/byid/:id").get(listingController.findOneById);
 
+//matches api/listing/info/:id
+router.route("/info/:id").get(listingController.findInfoById);
+
 //matches api/listing/
 router
   .route("/")

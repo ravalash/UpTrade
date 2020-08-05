@@ -20,26 +20,26 @@ function Listings() {
       });
   }, []);
 
-    return (
-        <div className="container" id="dashboard-container">
-            <div className="row">
-                <div className="col-3" id="user-col">
-                    <UserCard />
-                    <hr></hr>
-                    <div className="card" >
-                        <Link to="/listings"><div className="card-body">
-                            <h5 className="card-title show-my-listings">Show all listings</h5>
-                        </div></Link>
-                    </div>
-                </div>
-                <div className="col-9" id="new-listings-col">
-                    <MyListingsBox data={data} />
-                </div>
-            </div>
+  return (
+    <div className="container" id="dashboard-container">
+      <div className="row">
+        <div className="col-3" id="user-col">
+          <UserCard />
+          <hr></hr>
+          <div className="card">
+            <Link to="/listings">
+              <div className="card-body">
+                <h5 className="card-title show-my-listings">
+                  Show all listings
+                </h5>
+              </div>
+            </Link>
+          </div>
         </div>
-        <div className="col-9" id="new-listings-col">
-          <MyListingsBox data={savedListings} />
-        </div>
+      </div>
+
+      <div className="col-9" id="new-listings-col">
+        <MyListingsBox data={savedListings} />
       </div>
     </div>
   );

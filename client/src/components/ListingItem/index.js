@@ -33,9 +33,9 @@ function ListingItem(props) {
                     <p>{item.Item.storyline}</p>
                     <h6>Looking for:</h6>
                     <ul>
-                      {item.request.map((x)=>{return (<li>{x.title} on {x.platform} </li>) })}
+                      {item.request.map((x, index)=>{return (<li key={index}>{x.title} on {x.platform} </li>) })}
                     </ul>
-                    <MakeOfferBtn />
+                    <MakeOfferBtn newOffer={props.newOffer} id={item.id}/>
                   </div>
                 </div>
                 <br />
