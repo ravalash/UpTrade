@@ -47,6 +47,10 @@ p{
     margin-left: 5px;
 }
 
+h5.card-title.show-my-listings{
+    font-size: 20px;
+}
+
 .navbar-brand {
     color: #A2D729;
     font-size: 50px;
@@ -125,21 +129,60 @@ p{
     padding-bottom: 2px;
 }
 
-.result {
+.card.result {
     margin-bottom: 6px;   
-    color: #342E37;
+    color: #342E37;   
+     margin-left: 5%;
+    margin-right: 5%
 }
 
-.result-button {
-    padding-left: 10px;
+.result-form {
+    padding-left: 5%;
+    padding-right: 5%
 }
-
 .result-button p {
-    margin-bottom: 0px;
+    margin: 0px;
+    white-space: normal;
+    padding-left: 5%;
+    padding-right: 5%
+
 }
 
-button {
-    margin-right: 10px;
+
+button.cust-btn{
+    background-color: #342E37;
+    color: #FAFFFD;
+    border-color: black;
+}
+
+button.review-offer-btn{
+    background-color: lightgreen;
+    color: black;
+    border-color: lightgrey
+}
+
+button.review-offer-btn:hover{
+    background-color: limegreen;
+}
+
+button.cancel-btn{
+    background-color:lightcoral;
+    color:black;
+    border-color:lightgray
+}
+
+button.cancel-btn:hover{
+    background-color:rgb(235, 78, 78)
+}
+
+button.add-inv-btn:hover{
+    background-color:black;
+    color: #3c91e6
+}
+
+button.make-offer-btn:hover {
+    background-color: black;
+    color: #A2D729;
 }
 
 /* Listing Item */

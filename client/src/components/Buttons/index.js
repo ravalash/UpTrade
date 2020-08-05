@@ -4,9 +4,9 @@ import GameContext from "../../utils/GameContext";
 
 export function AddInvBtn() {
     return (
-        <a type="button" className="btn add-inv-btn btn-success" data-toggle="modal" data-target="#add-inventory">
+        <button type="button" className="btn add-inv-btn cust-btn" data-toggle="modal" data-target="#add-inventory">
             Add an Item
-        </a>
+        </button>
     );
 }
 
@@ -39,21 +39,21 @@ export function GreenListingBtn(props) {
 
 
 export function YellowListingBtn() {
-    return <a type='button' className="btn btn-warning" href="/inventory">Make a listing</a>
+    return <button type='button' className="btn add-inv-btn cust-btn" href="/inventory">Make a Listing</button>
 }
 
 export function MakeOfferBtn(props) {
     return (
-        <a type="button" className="btn make-offer-btn btn-warning" data-toggle="modal" data-target="#make-offer">
+        <button type="button" className="btn make-offer-btn cust-btn" data-toggle="modal" data-target="#make-offer">
             Make an Offer
-        </a>
+        </button>
     );
 }
 
 export function ReviewOfferBtn(props) {
     return (
-        <a type="button" className="btn review-offer-btn btn-warning" data-toggle="modal" data-target="#review-offer">
+        <button type="button" className="btn review-offer-btn" data-toggle="modal" data-target="#review-offer">
             Review Offers
-        </a>
+        </button>
     )
 }

@@ -8,9 +8,9 @@ function MakeListing(props) {
     const [games, setGames] = useState([]);
     const [search, setSearch] = useState("");
     const [listing, setListing] = useState([]);
-    const { selectedGame } = useContext(GameContext);
+    // const { selectedGame } = useContext(GameContext);
 
-var test="";
+    var test = "";
     function handleInput(event) {
         const { name, value } = event.target;
         setSearch({ [name]: value });
@@ -26,13 +26,13 @@ var test="";
         e.preventDefault();
         let item = { title: e.target.getAttribute("data-title"), platform: (e.target).parentElement.parentElement.firstElementChild.children[2].firstElementChild.value };
         // platform: (e.target).parentElement.parentElement.firstElementChild.children[2].firstElementChild.value
-         test=e.target;
-         console.log(test);
+        test = e.target;
+        console.log(test);
         let listingHolder = listing;
         listingHolder.push(item);
         console.log(listingHolder);
         setListing(listingHolder);
-        
+
         // API.addListing(listing).then(res => { console.log(res) })
     }
 

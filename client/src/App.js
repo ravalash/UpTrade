@@ -22,15 +22,15 @@ function App() {
 
   function chooseTrade(event) {
     event.preventDefault()
-    setGameState({selectedListingGame: event.target.name})
-    
+    setGameState({ selectedListingGame: event.target.name })
+
   }
 
-  useEffect( () => { console.log(GameState) }, [ GameState ] );
+  useEffect(() => { console.log(GameState) }, [GameState]);
 
   return (
 
-<Router>
+    <Router>
       <GameContext.Provider value={GameState}>
         <Nav />
         <AddInventory />
@@ -48,6 +48,8 @@ function App() {
         </div>
       </GameContext.Provider>
     </Router>
+
+
 
   );
 }

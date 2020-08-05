@@ -44,8 +44,8 @@ function MyListingItem(props) {
         //     }
         // </div>
         <div>
-        <p>My listing item</p>
-       
+            <p>My listing item</p>
+
             <div className="card" id="listing-item">
                 <div className="card-body" id="listing-item">
                     <h5 className="card-title">Portal 2</h5>
@@ -53,10 +53,8 @@ function MyListingItem(props) {
                         <p><span className="badge badge-pill badge-dark">Xbox One</span> <span className="badge badge-pill badge-primary">Adventure</span></p>
                         {isOffer ? (<ReviewOfferBtn />) : (
                             <></>)}
-                        <button type="button" className="btn btn-success">Cancel Listing</button>
+                        <button type="button" className="btn cancel-btn">Cancel Listing</button>
                     </div>
-                    <br />
-                    <hr />
                 </div>
             </div>
         </div>
