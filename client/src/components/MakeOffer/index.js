@@ -7,20 +7,27 @@ function MakeOffer(props) {
   // these two arrays will be replaced in integration
   // let lookingFor = ["No Man's Sky for PlayStation 4", "Super Mario Odyssey for Nintendo Switch", "Madden 19 for Xbox One", "Kerbal Space Program for Steam"]
   // let myInventory = ["The Legend of Zelda: Breath of the Wild for Nintendo Switch", "Stardew Valley for Steam", "Kerbal Space Program for Steam"]
-  const {newOfferGame} = useContext(GameContext);
+  const { newOfferGame } = useContext(GameContext);
   const [tradeGames, setTradeGames] = useState([]);
   const [myInventory, setMyInventory] = useState([]);
 
   useEffect(() => {
     console.log("NewOffer changed");
     console.log(newOfferGame);
-    API.loadInfoListing(newOfferGame)
-      .then((result) => {
-        setTradeGames(result.data);
-        API.loadAllItems().then((result) => setMyInventory(result.data));
-      })
-      .catch((err) => console.log(err));
+    if (newOfferGame !== "") {
+      API.loadInfoListing(newOfferGame)
+        .then((result) => {
+          setTradeGames(result.data);
+          API.loadAllItems().then((result) => setMyInventory(result.data));
+        })
+        .catch((err) => console.log(err));
+    }
   }, [newOfferGame]);
+
+  useEffect(() => {
+    console.log("TradeGames changed");
+    console.log(tradeGames);
+  }, [tradeGames]);
 
   function createOffer(event) {
     event.preventDefault();
@@ -69,20 +76,25 @@ function MakeOffer(props) {
           <div className="modal-body">
             <p>What their looking for:</p>
             <ul>
-              {tradeGames.map((item, index) => {
-                if (myInventory.includes(item)) {
-                  return (
-                    <li className="match-item" key={index}>
-                      {item.title} on {item.platform} <i>You have this item!</i>
-                    </li>
-                  );
-                } else
-                  return (
-                    <li key={index}>
-                      {item.title} on {item.platform}{" "}
-                    </li>
-                  );
-              })}
+              {tradeGames.length ? (
+                tradeGames.map((item, index) => {
+                  if (myInventory.includes(item)) {
+                    return (
+                      <li className="match-item" key={index}>
+                        {item.title} on {item.platform}{" "}
+                        <i>You have this item!</i>
+                      </li>
+                    );
+                  } else
+                    return (
+                      <li key={index}>
+                        {item.title} on {item.platform}{" "}
+                      </li>
+                    );
+                })
+              ) : (
+                <li />
+              )}
             </ul>
             <hr />
             <p>What would you like to offer?</p>

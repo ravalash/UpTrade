@@ -1,7 +1,6 @@
 const db = require("../models");
 const { Op } = require("sequelize");
 
-
 // Defining methods for the listingController
 module.exports = {
   // Finds all listings owned by the currently logged in user
@@ -23,24 +22,24 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   //Finds all listings owned by anyone else
-findAllSeller: function(req,res){
-  db.Listing.findAll({
-    include: [
-      {
-        model: db.Item,
-        required: true,
-      },
-    ],
-    where: {UserId: {[Op.ne]: req.user}}
-  })
-    .then((result) => {
-      result.forEach((element) => {
-        element.request = JSON.parse(element.request);
-      });
-      res.json(result);
+  findAllSeller: function (req, res) {
+    db.Listing.findAll({
+      include: [
+        {
+          model: db.Item,
+          required: true,
+        },
+      ],
+      where: { UserId: { [Op.ne]: req.user } },
     })
-    .catch((err) => res.status(422).json(err));
-},
+      .then((result) => {
+        result.forEach((element) => {
+          element.request = JSON.parse(element.request);
+        });
+        res.json(result);
+      })
+      .catch((err) => res.status(422).json(err));
+  },
 
   findAllById: function (req, res) {
     console.log("find all by id");
@@ -53,6 +52,7 @@ findAllSeller: function(req,res){
       ],
       where: {
         UserId: req.user,
+        active: 1
       },
     })
       .then((result) => {
@@ -104,9 +104,17 @@ findAllSeller: function(req,res){
   update: function (req, res) {
     db.Listing.update(req.body, {
       where: {
-        UserId: req.user.id,
+        UserId: req.user,
         id: req.body.id,
       },
+    })
+      .then((result) => res.json(result))
+      .catch((err) => res.status(422).json(err));
+  },
+
+  updateSeller: function (req, res) {
+    db.Listing.update(req.body, {
+      where: { UserId: req.user, id: req.params.id },
     })
       .then((result) => res.json(result))
       .catch((err) => res.status(422).json(err));

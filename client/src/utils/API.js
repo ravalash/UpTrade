@@ -9,11 +9,10 @@ export default {
     console.log("check login");
     return axios.get("/api/user");
   },
-  logout: function() {
-    console.log('api logout')
-    return axios.get("api/user/logout")
+  logout: function () {
+    console.log("api logout");
+    return axios.get("api/user/logout");
   },
-
 
   addItem: function (game) {
     console.log(game);
@@ -54,6 +53,12 @@ export default {
     console.log(listing);
     return axios.post("api/listing/", listing);
   },
+
+  updateSellerListing: function (id) {
+    console.log(`updating listing with id ${id}`);
+    const query = { status: 0 };
+    return axios.put(`api/listing/seller/${id}`, query);
+  },
   newOffer: function (offer) {
     console.log(offer);
     return axios.post("api/transaction", offer);
@@ -64,7 +69,17 @@ export default {
     return axios.get(`api/transaction/offers/${id}`);
   },
   
+  acceptOffer: function (id) {
+    console.log(`Accepting offer for transaction ${id}`);
+    return axios.put(`api/transaction/offers/${id}`);
 
+  },
+
+  rejectOffer: function (id) {
+    const query = { status: 1 };
+    console.log(`rejecting offer ${id}`);
+    return axios.put(`api/transaction/seller/${id}`, query);
+  },
   loadAllBids: function () {
     console.log(
       "load all transactions where user has made an offer and the listing is active"

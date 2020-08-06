@@ -22,9 +22,12 @@ router.route("/bids").get(transactionController.findActiveBids);
 router.route("/listing/:id").get(transactionController.findByListingId);
 
 //matches api/transaction/seller.
-router.route("/seller").put(transactionController.updateSeller);
+router.route("/seller/:id").put(transactionController.updateSeller);
 
 //matches api/transaction/offer/:id
-router.route("/offers/:id").get(transactionController.findAllOffers);
+router
+  .route("/offers/:id")
+  .get(transactionController.findAllOffers)
+  .put(transactionController.acceptOffer);
 
 module.exports = router;

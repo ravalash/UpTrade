@@ -152,13 +152,61 @@ module.exports = {
   },
   // Updates an item where the user is the *seller* based on a transaction number
   updateSeller: function (req, res) {
+    console.log(`updating transaction ${req.params.id} with ${req.body}`);
     db.Transaction.update(req.body, {
       where: {
-        id: req.body.id,
-        SellerId: req.user.id,
+        id: req.params.id,
+        SellerId: req.user,
       },
     })
       .then((result) => res.json(result))
+      .catch((err) => res.status(422).json(err));
+  },
+
+  acceptOffer: function (req, res) {
+    console.log(`accepting offer for transaction ${req.params.id}`);
+    db.Transaction.findOne({
+      include: [{ model: db.Listing, attributes: ["ItemId"] }],
+      where: { SellerId: req.user, id: req.params.id },
+    })
+      .then((result) => {
+        const listingId = result.ListingId;
+        const sellerItem = result.Listing.ItemId;
+        const buyerItem = result.offeredItemId;
+        const sellerId = result.SellerId;
+        const buyerId = result.UserId;
+        console.log(
+          `transfer buyer item ${buyerItem} to seller id ${sellerId}`
+        );
+        db.Item.update({ UserId: sellerId }, { where: { id: buyerItem } })
+          .then(() => {
+            console.log(
+              `transfer seller item ${sellerItem} to buyer id ${buyerId}`
+            );
+            db.Item.update(
+              { UserId: buyerId },
+              { where: { id: sellerItem } }
+            ).then(() => {
+              console.log(`Change listing id ${listingId} to inactive`);
+              db.Listing.update(
+                { active: 0 },
+                { where: { id: listingId } }
+              ).then(() => {
+                console.log(
+                  `Update transaction id ${req.params.id} to 2 for offer accepted`
+                );
+                db.Transaction.update(
+                  { status: 2 },
+                  { where: { id: req.params.id } }
+                ).then((result) => {
+                  console.log(result);
+                  res.json(result);
+                });
+              });
+            });
+          })
+          .catch((err) => res.status(422).json(err));
+      })
       .catch((err) => res.status(422).json(err));
   },
 

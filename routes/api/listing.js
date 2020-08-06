@@ -10,6 +10,9 @@ router.route("/info/:id").get(listingController.findInfoById);
 //matches api/listing/seller
 router.route("/seller").get(listingController.findAllSeller);
 
+//matches api/listing/seller/:id
+router.route("/seller/:id").put(listingController.updateSeller)
+
 
 //matches api/listing/
 router
