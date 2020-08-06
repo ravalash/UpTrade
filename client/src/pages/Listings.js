@@ -25,6 +25,7 @@ function Listings(props) {
   //     return <Redirect to="/"/>;
   //   }
 
+
   return (
     <div className="container" id="dashboard-container">
       <div className="row">
@@ -41,6 +42,7 @@ function Listings(props) {
           <ListingsBox data={allListings} newOffer={props.newOffer} />
         </div>
       </div>
+
     </div>
   );
 }

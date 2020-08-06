@@ -8,7 +8,7 @@ function InventoryItem(props) {
   const handleRemoveGame = (e) => {
     e.preventDefault();
     let gameid = e.target.getAttribute("id");
-    API.checkLogin().then(res => { API.deleteItem(res.data.id, gameid) })
+    API.deleteItem(gameid).then(res => console.log(res))
   }
 
   return (

@@ -3,15 +3,24 @@ import UserCard from "../components/UserCard"
 import NewListingsBox from "../components/NewListingsBox"
 import MyListingsBox from "../components/MyListingsBox"
 import { Redirect } from "react-router-dom";
+import API from '../utils/API';
+// import Moment from 'moment';
 import '../App.css'
 
 
 function Dashboard(props) {
+    const [data, setData] = useState([]);
 
-    const data = require("../exampleData");
+    useEffect(() => {
+        // let myDate = Moment(new Date()).format("YYYY-MM-DD");
+        // console.log(myDate)
 
+        // API.loadAllListings().then(res => {
+        //     res.data.filter(listing => listing.createdAt = myDate)
+        // }).then(data => console.log(data))
+        API.loadAllListings().then(res => setData(res.data))
 
-
+    }, [])
     return (
         <div className="container" id="dashboard-container">
             <div className="row">

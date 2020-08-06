@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Redirect, Link } from "react-router-dom";
+import {Link } from "react-router-dom";
 import UserCard from "../components/UserCard";
 import MyListingsBox from "../components/MyListingsBox";
 import API from "../utils/API";
 // const data = require("../exampleData");
 
-function Listings() {
+function myListings(props) {
     const [savedListings, setSavedListings] = useState([]);
     const [savedBids, setSavedBids] = useState([]);
 
@@ -49,11 +49,12 @@ function Listings() {
                     </div>
                 </div>
                 <div className="col-9" id="new-listings-col">
-                    <MyListingsBox data={savedListings} bids={savedBids} />
+                    <MyListingsBox data={savedListings} bids={savedBids} reviewOffer={props.reviewOffer}/>
+
                 </div>
             </div>
         </div>
     );
 }
 
-export default Listings;
+export default myListings;

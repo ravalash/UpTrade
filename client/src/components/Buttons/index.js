@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { NotificationManager } from 'react-notifications';
@@ -44,7 +45,7 @@ export function MakeOfferBtn(props) {
 
 export function ReviewOfferBtn(props) {
     return (
-        <button type="button" className="btn review-offer-btn" data-toggle="modal" data-target="#review-offer">
+        <button type="button" className="btn review-offer-btn" data-toggle="modal" data-target="#review-offer" data-id={props.data.id} onClick={props.reviewOffer}>
             Review Offers
         </button>
     )

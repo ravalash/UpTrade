@@ -36,7 +36,8 @@ function Nav() {
             <Link className="nav-link" to="/faq">FAQ</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">Log Out</Link>
+            <Link className="nav-link" to="/logout">Sign Out</Link>
+
           </li>
         </ul>
       </div>
