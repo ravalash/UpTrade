@@ -46,11 +46,11 @@ export default {
   },
 
   addListing: function (listing) {
-    console.log(listing);
+    // console.log(listing);
     return axios.post("api/listing/", listing);
   },
   newOffer: function (offer) {
-    console.log(offer);
+    // console.log(offer);
     return axios.post("api/transaction", offer);
   },
 

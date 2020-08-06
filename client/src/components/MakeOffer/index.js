@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import GameContext from "../../utils/GameContext";
 import API from "../../utils/API";
 import GameTradeCard from "../GameTradeCard";
+import { NotificationManager } from "react-notifications";
 const data = require("../../exampleData");
 
 function MakeOffer(props) {
@@ -51,6 +52,8 @@ function MakeOffer(props) {
         API.newOffer(offer)
             .then((result) => {
                 console.log(result);
+                resetState()
+                NotificationManager.success('Offer sent!');
             })
             .catch((err) => console.log(err));
     }
@@ -124,7 +127,8 @@ function MakeOffer(props) {
                             <button
                                 type="button"
                                 className="btn btn-primary"
-                                onClick={createOffer, resetState}
+                                data-dismiss="modal"
+                                onClick={createOffer}
                             >
                                 Make Offer
               </button>

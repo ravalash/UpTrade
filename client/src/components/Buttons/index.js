@@ -29,12 +29,10 @@ export function GreenListingBtn(props) {
 
 
 export function YellowListingBtn() {
-    function toast() {
-        useEffect(() => {
-            NotificationManager.info('Choose one of your games to list');
-        }, [])
+    function useEffect() {
+        NotificationManager.info('Choose one of your games to list');
     }
-    return <Link to="/inventory"><button type='button' className="btn add-inv-btn cust-btn" onClick={toast}>Make a Listing</button></Link>
+    return <Link to="/inventory"><button type='button' className="btn add-inv-btn cust-btn" onClick={useEffect}>Make a Listing</button></Link>
 }
 
 export function MakeOfferBtn(props) {

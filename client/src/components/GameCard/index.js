@@ -26,6 +26,7 @@ function GameCard(props) {
             .then((result) => API.addItem(result))
             .then((result) => {
                 console.log(result);
+                NotificationManager.success('Game added!');
                 if (result.status === 200) {
                     setSelect(false);
                     setSuccess(true);
