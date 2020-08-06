@@ -11,15 +11,23 @@ function MyListingItem(props) {
         <div className="card" id="listing-item" key={item.ListingId}>
           <div className="card-body" id="listing-item">
             <h5 className="card-title">{item.Listing.Item.name}</h5>
-            <div>
-              <p>
-                <span className="badge badge-pill badge-dark">{item.Listing.Item.platform}</span>{" "}
-              </p>
-              {/* {item.Item.offer ===1 ? <ReviewOfferBtn /> : <></>} */}
-              <button type="button" className="btn cancel-btn">
-                Cancel Listing
+            <div className="row">
+              <div className="col-4">
+                <img
+                  src={item.Listing.Item.cover}
+                  className="img-fluid"
+                  alt={"Cover of " + item.Listing.Item.name}
+                />
+              </div>
+              <div className="col-8">
+                <p>
+                  <span className="badge badge-pill badge-dark">{item.Listing.Item.platform}</span>{" "}
+                </p>
+                {/* {item.Item.offer ===1 ? <ReviewOfferBtn /> : <></>} */}
+                <button type="button" className="btn cancel-btn">
+                  Cancel Offer
             </button>
-            </div>
+              </div></div>
             <br />
             <hr />
           </div>
