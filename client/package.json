@@ -1,5 +1,5 @@
 {
-  "name": "mern",
+  "name": "uptrayde",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,5 +23,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3001",
+  "homepage" : "https://uptrade-app.herokuapp.com/"
+
 }

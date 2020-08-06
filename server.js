@@ -4,6 +4,7 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('./config/passport');
 const routes = require('./routes/index');
+const path = require("path");
 const cors = require('cors');
 
 
