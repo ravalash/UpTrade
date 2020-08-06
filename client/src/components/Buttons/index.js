@@ -1,4 +1,6 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { NotificationManager } from 'react-notifications';
 
 
 export function AddInvBtn() {
@@ -10,12 +12,7 @@ export function AddInvBtn() {
 }
 
 export function GreenListingBtn(props) {
-
-
-
-
     return (
-
         <button
             type="button"
             data-id={props.id}
@@ -25,7 +22,6 @@ export function GreenListingBtn(props) {
             name={props.name}
             onClick={props.chooseTrade}
         >
-
             Make a Listing
         </button>
     );
@@ -33,13 +29,18 @@ export function GreenListingBtn(props) {
 
 
 export function YellowListingBtn() {
-    return <button type='button' className="btn add-inv-btn cust-btn" href="/inventory">Make a Listing</button>
+    function toast() {
+        useEffect(() => {
+            NotificationManager.info('Choose one of your games to list');
+        }, [])
+    }
+    return <Link to="/inventory"><button type='button' className="btn add-inv-btn cust-btn" onClick={toast}>Make a Listing</button></Link>
 }
 
 export function MakeOfferBtn(props) {
     return (
         <a type="button" className="btn make-offer-btn btn-warning" data-toggle="modal" data-target="#make-offer" onClick={props.newOffer} data-id={props.id} >Make an Offer</a>
-        
+
     );
 }
 
