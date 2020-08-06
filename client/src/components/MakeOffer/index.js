@@ -18,12 +18,37 @@ function MakeOffer(props) {
     API.loadInfoListing(newOfferGame)
       .then((result) => {
         setTradeGames(result.data);
-        API.loadAllItems().then((result) =>
-          setMyInventory(result.data)
-        );
+        API.loadAllItems().then((result) => setMyInventory(result.data));
       })
       .catch((err) => console.log(err));
   }, [newOfferGame]);
+
+  function createOffer(event) {
+    event.preventDefault();
+    console.log(event.target);
+    console.log(
+      document
+        .querySelector("input[name=offerChoice]:checked")
+        .getAttribute("id")
+    );
+    console.log(
+      document
+        .querySelector("input[name=offerChoice]:checked")
+        .getAttribute("data-name")
+    );
+    const offer = {
+      offeredItemId: document
+        .querySelector("input[name=offerChoice]:checked")
+        .getAttribute("id"),
+      ListingId: newOfferGame,
+    };
+    console.log(offer);
+    API.newOffer(offer)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
     <div className="modal fade" id="make-offer" tabIndex="-1" role="dialog">
@@ -69,7 +94,9 @@ function MakeOffer(props) {
                   <input
                     className="form-check-input"
                     type="radio"
-                    id={item.name}
+                    id={item.id}
+                    data-name={item.name}
+                    name="offerChoice"
                   ></input>
                   <label className="form-check-label" for={item.name}>
                     {item.name}
@@ -86,7 +113,11 @@ function MakeOffer(props) {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={createOffer}
+              >
                 Make Offer
               </button>
             </div>
