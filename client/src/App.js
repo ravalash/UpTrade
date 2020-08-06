@@ -7,6 +7,7 @@ import Register from "./pages/Register.js";
 import Dashboard from "./pages/Dashboard.js";
 import Inventory from "./pages/Inventory.js";
 import Listings from "./pages/Listings.js";
+import Help from "./pages/Help.js";
 import AddInventory from "./components/AddInventory";
 import MakeListing from "./components/MakeListing";
 import MyListings from "./pages/MyListings";
@@ -31,14 +32,15 @@ function App() {
     setGameState({ newOfferGame: event.target.getAttribute("data-id") });
   }
 
-  useEffect(() => {console.log('GameState changed');
+  useEffect(() => {
+    console.log('GameState changed');
     console.log(GameState);
   }, [GameState]);
 
   console.log(GameState);
-  
+
   return (
-<Router>
+    <Router>
       <GameContext.Provider value={GameState}>
         <Nav />
         <AddInventory />
@@ -68,6 +70,7 @@ function App() {
             />
             {/* <Route exact path="/listings" component={Listings} /> */}
             <Route exact path="/mylistings" component={MyListings} />
+            <Route exact path="/faq" component={Help} />
           </Switch>
         </div>
       </GameContext.Provider>
