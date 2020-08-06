@@ -7,19 +7,53 @@ const data = require("../../exampleData");
 function ReviewOffer(props) {
   const { reviewOfferListing } = useContext(GameContext);
   const [newOffers, setNewOffers] = useState([]);
-  // const [myInventory, setMyInventory] = useState([]);
 
   useEffect(() => {
     console.log("ReviewOffer Useeffect");
     console.log(reviewOfferListing);
-    API.reviewOffer(reviewOfferListing).then((res) => {setNewOffers(res.data)});
-    // API.loadInfoListing(newOfferGame)
-    //   .then((result) => {
-    //     setTradeGames(result.data);
-    //     API.loadAllItems().then((result) => setMyInventory(result.data));
+    if (reviewOfferListing !== "") {
+      API.reviewOffer(reviewOfferListing).then((res) => {
+        setNewOffers(res.data);
+      });
+    }
+  }, [reviewOfferListing]);
+
+  function rejectOffer(event) {
+    const transactionID = parseInt(event.target.getAttribute("data-id"));
+    API.rejectOffer(transactionID)
+      .then((res) => {
+        console.log(res);
+        let newOffersHolder = newOffers.filter(
+          (item) => item.id !== transactionID
+        );
+        setNewOffers(newOffersHolder);
+        console.log(newOffers);
+        if (newOffersHolder.length === 0) {
+          API.updateSellerListing(reviewOfferListing);
+        }
+      })
+      .catch((err) => console.log(err));
+  }
+
+  function acceptOffer(event) {
+    const transactionID = parseInt(event.target.getAttribute("data-id"));
+    console.log(transactionID);
+    API.acceptOffer(transactionID).then((result) => console.log(result));
+
+    // API.rejectOffer(transactionID)
+    //   .then((res) => {
+    //     console.log(res);
+    //     let newOffersHolder = newOffers.filter(
+    //       (item) => item.id !== transactionID
+    //     );
+    //     setNewOffers(newOffersHolder);
+    //     console.log(newOffers);
+    //     if (newOffersHolder.length === 0) {
+    //       API.updateSellerListing(reviewOfferListing);
+    //     }
     //   })
     //   .catch((err) => console.log(err));
-  }, [reviewOfferListing]);
+  }
 
   return (
     <div className="modal fade" id="review-offer" tabIndex="-1" role="dialog">
@@ -39,7 +73,11 @@ function ReviewOffer(props) {
             </button>
           </div>
           <div className="modal-body">
-            <OfferCard data={newOffers}/>
+            <OfferCard
+              data={newOffers}
+              rejectOffer={rejectOffer}
+              acceptOffer={acceptOffer}
+            />
             <br />
           </div>
         </div>

@@ -1,13 +1,13 @@
 import React from "react";
 
 function OfferCard(props) {
-  console.log(props.data);
+  console.log(`offer card ${props.data}`);
   return (
     <div>
-      {props.data
+      {props.data.length ? props.data
         .filter((x) => x.offered_item !== undefined)
         .map((item) => (
-          <div className="card" id="listing-item">
+          <div className="card" id="listing-item" key={item.offered_item.id}>
             <div className="card-body" id="listing-item">
               <h5 className="card-title">{item.offered_item.name}</h5>
               <div className="row">
@@ -24,19 +24,16 @@ function OfferCard(props) {
                     </span>
                   </p>
                   <p>
-                    Powered by Frostbite™, EA SPORTS™ FIFA 20 for PC brings two
-                    sides of The World’s Game to life - the prestige of the
-                    professional stage and an all-new, authentic street football
-                    experience in EA SPORTS VOLTA.
+             {item.offered_item.storyline}
                     <a target="_blank" href={item.offered_item.url}>
                       {" "}
                       Read more...
                     </a>
                   </p>
-                  <button type="button" className="btn btn-success">
+                  <button type="button" className="btn btn-success" data-id={item.id} onClick={props.acceptOffer}>
                     Accept Offer
                   </button>
-                  <button type="button" className="btn btn-success">
+                  <button type="button" className="btn btn-success" data-id={item.id} onClick={props.rejectOffer}>
                     Reject Offer
                   </button>
                 </div>
@@ -45,7 +42,7 @@ function OfferCard(props) {
               <hr />
             </div>
           </div>
-        ))}
+        )) : <div/>}
     </div>
   );
 }

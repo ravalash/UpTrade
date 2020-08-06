@@ -51,7 +51,7 @@ module.exports = {
   remove: function (req, res) {
     db.Item.destroy({
       where: {
-        UserId: req.user.id,
+        UserId: req.user,
         id: req.body.id,
       },
     })
