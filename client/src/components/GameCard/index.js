@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Dropdown from "../ConsoleDropdown";
 import Alert from "../Alert";
 import API from "../../utils/API";
+import { NotificationManager } from "react-notifications"
 
 function GameCard(props) {
     const [select, setSelect] = useState([]);
