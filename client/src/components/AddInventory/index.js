@@ -13,6 +13,11 @@ function AddInventory() {
     setSearch({ [name]: value });
   }
 
+  function resetState() {
+    setGames([])
+    setSearch({})
+  }
+
   //   useEffect(() => {
 
   //     setTimeout(() => setNoResults(null), 5000);
@@ -65,6 +70,7 @@ function AddInventory() {
               className="close"
               data-dismiss="modal"
               aria-label="Close"
+              onClick={resetState}
             >
               <span aria-hidden="true">&times;</span>
             </button>

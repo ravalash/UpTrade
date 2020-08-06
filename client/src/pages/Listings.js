@@ -6,7 +6,7 @@ import API from '../utils/API';
 
 function Listings(props) {
   const [allListings, setAllListings] = useState([]);
-  
+
 
   useEffect(() => {
     console.log("listing use effect");
@@ -20,10 +20,11 @@ function Listings(props) {
       });
   }, []);
 
-    //   if(redirectListing===1) {
-    //       console.log('redirect from listings')
-    //     return <Redirect to="/"/>;
-    //   }
+  //   if(redirectListing===1) {
+  //       console.log('redirect from listings')
+  //     return <Redirect to="/"/>;
+  //   }
+
 
     return (
         <div className="container" id="dashboard-container">
@@ -41,8 +42,11 @@ function Listings(props) {
                     <ListingsBox data={allListings} newOffer={props.newOffer} />
                 </div>
             </div>
+
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Listings;

@@ -13,7 +13,6 @@ function myListings(props) {
         console.log("my listing use effect");
         API.loadMyListings()
             .then((res) => {
-                console.log(res);
                 setSavedListings(res.data);
             })
             .catch((err) => {
@@ -51,6 +50,7 @@ function myListings(props) {
                 </div>
                 <div className="col-9" id="new-listings-col">
                     <MyListingsBox data={savedListings} bids={savedBids} reviewOffer={props.reviewOffer}/>
+
                 </div>
             </div>
         </div>

@@ -30,7 +30,7 @@ function InventoryItem(props) {
                   Game Key: {item.key}
                 </p>
                 <p>
-                  Summary: {item.storyline}
+                  {item.storyline} ... <a href={item.url}>[Read more]</a>
                 </p>
                 <GreenListingBtn name={item.name} id={item.id} chooseTrade={props.chooseTrade} /> <button type="button" className="btn btn-primary">Remove Game</button>
               </div>
