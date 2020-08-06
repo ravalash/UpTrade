@@ -13,36 +13,35 @@ function MyListingsBox(props) {
   }
   return (
     <div className="card">
-      <div className="card-body" style={{backgroundColor:"#342E37"}}>
+      <div className="card-body" style={{ backgroundColor: "#342E37" }}>
         <button
           type="button"
           data-id={1}
           className="link-button"
           onClick={setTab}
         >
-          <h5 className={listingsTab===1 ? "card-title" : "card-title text-light"} data-id={1}>
+          <h5 className={listingsTab === 1 ? "card-title" : "card-title text-light"} data-id={1}>
             My Listings
           </h5>
         </button>
-
         <button
           type="button"
           data-id={2}
           className="link-button"
           onClick={setTab}
-          style={{float: "right"}}
+          style={{ float: "inline-start" }}
         >
-          <h5 className={listingsTab===2 ? "card-title" : "card-title text-light"} data-id={2}>
+          <h5 className={listingsTab === 2 ? "card-title" : "card-title text-light"} data-id={2}>
             My Offers
           </h5>
         </button>
 
         <hr />
-        <div className="container" style={listingsTab ===1 ? {display:'block'} : {display: 'none'}}>
-          <MyListingItem data={props.data} reviewOffer={props.reviewOffer}/>
+        <div className="container" style={listingsTab === 1 ? { display: 'block' } : { display: 'none' }}>
+          <MyListingItem data={props.data} reviewOffer={props.reviewOffer} />
         </div>
-        <div className="container" style={listingsTab ===2 ? {display:'block'} : {display: 'none'}}>
-        <MyofferItem bids={props.bids}/>
+        <div className="container" style={listingsTab === 2 ? { display: 'block' } : { display: 'none' }}>
+          <MyofferItem bids={props.bids} />
         </div>
       </div>
     </div>
