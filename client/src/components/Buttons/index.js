@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 
 export function AddInvBtn() {
@@ -45,7 +45,7 @@ export function MakeOfferBtn(props) {
 
 export function ReviewOfferBtn(props) {
     return (
-        <button type="button" className="btn review-offer-btn" data-toggle="modal" data-target="#review-offer">
+        <button type="button" className="btn review-offer-btn" data-toggle="modal" data-target="#review-offer" data-id={props.data.id} onClick={props.reviewOffer}>
             Review Offers
         </button>
     )

@@ -1,8 +1,6 @@
 import React from "react";
-import { ReviewOfferBtn } from "../Buttons";
 
 function MyListingItem(props) {
-  let isOffer = true;
   console.log(props.bids);
 
   return (

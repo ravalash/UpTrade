@@ -24,4 +24,7 @@ router.route("/listing/:id").get(transactionController.findByListingId);
 //matches api/transaction/seller.
 router.route("/seller").put(transactionController.updateSeller);
 
+//matches api/transaction/offer/:id
+router.route("/offers/:id").get(transactionController.findAllOffers);
+
 module.exports = router;

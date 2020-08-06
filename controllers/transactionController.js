@@ -20,10 +20,35 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
 
-  // Finds all active transactions where the user has bid on another user's listing
-  findActiveBids: function(req, res) {
-    db.Transaction.findAll({include:[{model: db.Listing, include:[{model: db.Item, required:true}], required:true}], where:{UserId: req.user }}).then(result =>{console.log(result); res.json(result)}).catch(err => res.status(422).json(err))
+  findAllOffers: function (req, res) {
+    console.log(`loading all offers for listing ${req.params.id}`);
+    db.Transaction.findAll({
+      include: [
+        { model: db.Item, as: "offered_item", include: [{ model: db.User }] },
+      ],
+      where: { ListingId: req.params.id, status: 0 },
+    }).then((result) => {
+      console.log(result);
+      res.json(result);
+    });
+  },
 
+  // Finds all active transactions where the user has bid on another user's listing
+  findActiveBids: function (req, res) {
+    db.Transaction.findAll({
+      include: [
+        {
+          model: db.Listing,
+          include: [{ model: db.Item, required: true }],
+          required: true,
+        },
+      ],
+      where: { UserId: req.user },
+    })
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => res.status(422).json(err));
   },
 
   // Finds one item by id owned by the current user
@@ -83,7 +108,7 @@ module.exports = {
     db.Listing.findOne({
       where: {
         id: req.body.ListingId,
-        UserId: {[Op.ne]: req.user}
+        UserId: { [Op.ne]: req.user },
       },
       attributes: ["UserId"],
     })
@@ -97,7 +122,12 @@ module.exports = {
               transaction.status = 0;
               db.Transaction.create(transaction)
                 .then((result) => {
-                  db.Listing.update({offer:1}, {where:{id:transaction.ListingId}}).then(res.json(result)).catch(err=>res.status(422).json(err))
+                  db.Listing.update(
+                    { offer: 1 },
+                    { where: { id: transaction.ListingId } }
+                  )
+                    .then(res.json(result))
+                    .catch((err) => res.status(422).json(err));
                 })
                 .catch((err) => res.status(422).json(err));
             } else {

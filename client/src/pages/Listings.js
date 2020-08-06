@@ -38,7 +38,7 @@ function Listings(props) {
                     </div>
                 </div>
                 <div className="col-9" id="new-listings-col">
-                    <ListingsBox data={allListings} newOffer={props.newOffer}/>
+                    <ListingsBox data={allListings} newOffer={props.newOffer} />
                 </div>
             </div>
         </div>

@@ -7,6 +7,7 @@ import Register from "./pages/Register.js";
 import Dashboard from "./pages/Dashboard.js";
 import Inventory from "./pages/Inventory.js";
 import Listings from "./pages/Listings.js";
+import LogOut from "./pages/Logout"
 import Help from "./pages/Help.js";
 import AddInventory from "./components/AddInventory";
 import MakeListing from "./components/MakeListing";
@@ -20,7 +21,8 @@ import "./App.css";
 function App() {
   const [GameState, setGameState] = useState({
     selectedListingGame: "",
-    newOfferGame: ""
+    newOfferGame: "",
+    reviewOfferListing:""
   });
 
   function chooseTrade(event) {
@@ -32,6 +34,12 @@ function App() {
     event.preventDefault();
     console.log(event.target);
     setGameState({ newOfferGame: event.target.getAttribute("data-id") });
+  }
+
+  function reviewOffer(event) {
+    event.preventDefault();
+    console.log(event.target);
+    setGameState({ reviewOfferListing: event.target.getAttribute("data-id") });
   }
 
   useEffect(() => {
@@ -52,7 +60,7 @@ function App() {
         <div id="wrapper">
           <Switch>
             <Route exact path="/" component={LogIn} />
-            <Route exact path="/login" component={LogIn} />
+            <Route exact path="/logout" component={LogOut} />
             <Route exact path="/register" component={Register} />
             {/* <Route exact path="/register" render={() => true ? <LogIn/> : <Register/>} /> */}
             <Route
@@ -71,7 +79,7 @@ function App() {
               render={() => <Listings newOffer={newOffer} />}
             />
             {/* <Route exact path="/listings" component={Listings} /> */}
-            <Route exact path="/mylistings" component={MyListings} />
+            <Route exact path="/mylistings" render={() => <MyListings reviewOffer={reviewOffer} />}/>
             <Route exact path="/faq" component={Help} />
           </Switch>
           <NotificationContainer />

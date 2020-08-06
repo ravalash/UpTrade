@@ -2,13 +2,12 @@ import React, { useState, useContext, useEffect } from "react";
 import GameContext from "../../utils/GameContext";
 import API from "../../utils/API";
 import GameTradeCard from "../GameTradeCard";
-const data = require("../../exampleData");
 
 function MakeOffer(props) {
   // these two arrays will be replaced in integration
   // let lookingFor = ["No Man's Sky for PlayStation 4", "Super Mario Odyssey for Nintendo Switch", "Madden 19 for Xbox One", "Kerbal Space Program for Steam"]
   // let myInventory = ["The Legend of Zelda: Breath of the Wild for Nintendo Switch", "Stardew Valley for Steam", "Kerbal Space Program for Steam"]
-  const { newOfferGame } = useContext(GameContext);
+  const {newOfferGame} = useContext(GameContext);
   const [tradeGames, setTradeGames] = useState([]);
   const [myInventory, setMyInventory] = useState([]);
 

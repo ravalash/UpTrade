@@ -9,6 +9,11 @@ export default {
     console.log("check login");
     return axios.get("/api/user");
   },
+  logout: function() {
+    console.log('api logout')
+    return axios.get("api/user/logout")
+  },
+
 
   addItem: function (game) {
     console.log(game);
@@ -53,6 +58,12 @@ export default {
     console.log(offer);
     return axios.post("api/transaction", offer);
   },
+  //Loads all open offers for a listing by ID number
+  reviewOffer: function (id) {
+    console.log(`Loading all offers for listing ${id}`);
+    return axios.get(`api/transaction/offers/${id}`);
+  },
+  
 
   loadAllBids: function () {
     console.log(
