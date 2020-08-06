@@ -6,10 +6,6 @@ function MyListingItem(props) {
   console.log(props.data);
   let isOffer = true;
 
-  useEffect(() => {
-    NotificationManager.success("Here are all your listings:");
-  }, []);
-
 
   return (
     <div>
@@ -20,30 +16,37 @@ function MyListingItem(props) {
             <div className="card" id="listing-item" key={item.id}>
               <div className="card-body" id="listing-item">
                 <h5 className="card-title">{item.Item.name}</h5>
-                <div>
-                  <p>
-                    <span className="badge badge-pill badge-dark">
-                      {item.Item.platform}
-                    </span>{" "}
-                    <span className="badge badge-pill badge-primary">
-                      Adventure
-                    </span>
-                  </p>
-                  <p>Games you want:</p>
-                  <ul>
-                    {item.request.map((x, index) => {
-                      return (
-                        <li key={index}>
-                          {x.title} on {x.platform}{" "}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  {/* <span className="badge badge-pill badge-dark">{item.request.platform}</span>{" "} */}
-                  {parseInt(item.offer) === 1 ? <ReviewOfferBtn data={item} reviewOffer={props.reviewOffer}/> : <></>}
-                  <button type="button" className="btn cancel-btn">
-                    Cancel Listing
+                <div className="row">
+                  <div className="col-4">
+                    <img
+                      src={item.Item.cover}
+                      className="img-fluid"
+                      alt={"Cover of " + item.Item.name}
+                    />
+                  </div>
+                  <div className="col-8">
+                    <p>
+                      <span className="badge badge-pill badge-dark">
+                        {item.Item.platform}
+                      </span>{" "}
+                    </p>
+
+                    <p>Games you want:</p>
+                    <ul>
+                      {item.request.map((x, index) => {
+                        return (
+                          <li key={index}>
+                            {x.title} on {x.platform}{" "}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    {/* <span className="badge badge-pill badge-dark">{item.request.platform}</span>{" "} */}
+                    {parseInt(item.offer) === 1 ? <ReviewOfferBtn data={item} reviewOffer={props.reviewOffer} /> : <></>}
+                    <button type="button" className="btn cancel-btn">
+                      Cancel Listing
                   </button>
+                  </div>
                 </div>
                 <br />
                 <hr />

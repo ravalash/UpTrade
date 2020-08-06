@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ListingItem from "../ListingItem"
 
 function ListingsBox(props) {
     const [listings, setListings] = useState(props.data);
-
-
+    useEffect(() => {
+        setListings(props.data)
+    })
     function handleTitleAZ() {
         setListings(props.data
             .sort(function (a, b) {
@@ -56,6 +57,7 @@ function ListingsBox(props) {
 
     function showAll() {
         setListings(props.data)
+        console.log("set")
     }
 
     return (
