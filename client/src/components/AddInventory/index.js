@@ -8,6 +8,7 @@ function AddInventory() {
   const [games, setGames] = useState([]);
   const [search, setSearch] = useState({});
   const [noresults, setNoResults] = useState(null);
+
   function handleInput(event) {
     const { name, value } = event.target;
     setSearch({ [name]: value });

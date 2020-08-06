@@ -2,7 +2,6 @@ import React from "react";
 import { MakeOfferBtn } from "../Buttons";
 
 function ListingItem(props) {
-    console.log(props.data);
     return (
         <div>
             {props.data
@@ -27,7 +26,7 @@ function ListingItem(props) {
                                                 {item.Item.platform}
                                             </span>{" "}
                                             <span className="badge badge-pill badge-primary">
-                                                {item.g}
+                                                {item.genre}
                                             </span>
                                         </p>
                                         <p>{item.Item.storyline}</p>
