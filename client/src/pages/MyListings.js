@@ -6,43 +6,42 @@ import API from "../utils/API";
 // const data = require("../exampleData");
 
 function Listings() {
-  const [savedListings, setSavedListings] = useState([]);
+    const [savedListings, setSavedListings] = useState([]);
 
-  useEffect(() => {
-    console.log("listing use effect");
-    API.loadMyListings()
-      .then((res) => {
-        console.log(res);
-        setSavedListings(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    useEffect(() => {
+        console.log("listing use effect");
+        API.loadMyListings()
+            .then((res) => {
+                console.log(res);
+                setSavedListings(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
 
-  return (
-    <div className="container" id="dashboard-container">
-      <div className="row">
-        <div className="col-3" id="user-col">
-          <UserCard />
-          <hr></hr>
-          <div className="card">
-            <Link to="/listings">
-              <div className="card-body">
-                <h5 className="card-title show-my-listings">
-                  Show all listings
+    return (
+        <div className="container" id="dashboard-container">
+            <div className="row">
+                <div className="col-3" id="user-col">
+                    <UserCard />
+                    <hr></hr>
+                    <div className="card">
+                        <Link to="/listings">
+                            <div className="card-body">
+                                <h5 className="card-title show-my-listings">
+                                    Show all listings
                 </h5>
-              </div>
-            </Link>
-          </div>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+                <div className="col-9" id="new-listings-col">
+                    <MyListingsBox data={savedListings} />
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div className="col-9" id="new-listings-col">
-        <MyListingsBox data={savedListings} />
-      </div>
-    </div>
-  );
+    );
 }
 
 export default Listings;

@@ -31,6 +31,9 @@ function Nav() {
           <li className={isActive("/inventory")}>
             <Link className="nav-link" to="/inventory">My Inventory</Link>
           </li>
+          <li className={isActive("/faq")}>
+            <Link className="nav-link" to="/faq">FAQ</Link>
+          </li>
           <li className="nav-item">
             <Link className="nav-link" to="/login">Sign Out</Link>
           </li>

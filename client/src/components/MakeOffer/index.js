@@ -5,12 +5,12 @@ import GameTradeCard from "../GameTradeCard";
 const data = require("../../exampleData");
 
 function MakeOffer(props) {
-  // these two arrays will be replaced in integration
-  // let lookingFor = ["No Man's Sky for PlayStation 4", "Super Mario Odyssey for Nintendo Switch", "Madden 19 for Xbox One", "Kerbal Space Program for Steam"]
-  // let myInventory = ["The Legend of Zelda: Breath of the Wild for Nintendo Switch", "Stardew Valley for Steam", "Kerbal Space Program for Steam"]
-  const { newOfferGame } = useContext(GameContext);
-  const [tradeGames, setTradeGames] = useState([]);
-  const [myInventory, setMyInventory] = useState([]);
+    // these two arrays will be replaced in integration
+    // let lookingFor = ["No Man's Sky for PlayStation 4", "Super Mario Odyssey for Nintendo Switch", "Madden 19 for Xbox One", "Kerbal Space Program for Steam"]
+    // let myInventory = ["The Legend of Zelda: Breath of the Wild for Nintendo Switch", "Stardew Valley for Steam", "Kerbal Space Program for Steam"]
+    const { newOfferGame } = useContext(GameContext);
+    const [tradeGames, setTradeGames] = useState([]);
+    const [myInventory, setMyInventory] = useState([]);
 
   useEffect(() => {
     console.log("NewOffer changed");
@@ -105,26 +105,31 @@ function MakeOffer(props) {
               );
             })}
 
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
+                        <div className="modal-footer">
+                            <button
+                                type="button"
+                                className="btn btn-secondary"
+                                data-dismiss="modal"
+                            >
+                                Close
               </button>
+<<<<<<< HEAD
               <button
                 type="button"
                 className="btn btn-primary"
                 onClick={createOffer}
               >
                 Make Offer
+=======
+                            <button type="button" className="btn btn-primary">
+                                Make Offer
+>>>>>>> 57dcaa1ad8108fb5efd30d4dcde1e50e1d255041
               </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
 export default MakeOffer;
