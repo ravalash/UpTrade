@@ -4,10 +4,12 @@ import { NotificationManager } from "react-notifications";
 
 function MyListingItem(props) {
   console.log(props.data);
+  let isOffer = true;
 
   useEffect(() => {
     NotificationManager.success("Here are all your listings:");
   }, []);
+
 
   return (
     <div>

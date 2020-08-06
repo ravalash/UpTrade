@@ -1,15 +1,18 @@
 import React, { useState, useContext, useEffect } from "react";
 import GameContext from "../../utils/GameContext";
 import API from "../../utils/API";
-import GameTradeCard from "../GameTradeCard";
+import { NotificationManager } from "react-notifications";
 
 function MakeOffer(props) {
-  // these two arrays will be replaced in integration
-  // let lookingFor = ["No Man's Sky for PlayStation 4", "Super Mario Odyssey for Nintendo Switch", "Madden 19 for Xbox One", "Kerbal Space Program for Steam"]
-  // let myInventory = ["The Legend of Zelda: Breath of the Wild for Nintendo Switch", "Stardew Valley for Steam", "Kerbal Space Program for Steam"]
+
   const { newOfferGame } = useContext(GameContext);
   const [tradeGames, setTradeGames] = useState([]);
   const [myInventory, setMyInventory] = useState([]);
+
+  function resetState() {
+    setTradeGames([]);
+    setMyInventory([]);
+  }
 
   useEffect(() => {
     console.log("NewOffer changed");
@@ -52,6 +55,8 @@ function MakeOffer(props) {
     API.newOffer(offer)
       .then((result) => {
         console.log(result);
+        resetState();
+        NotificationManager.success("Offer sent!");
       })
       .catch((err) => console.log(err));
   }
@@ -69,6 +74,7 @@ function MakeOffer(props) {
               className="close"
               data-dismiss="modal"
               aria-label="Close"
+              onClick={resetState}
             >
               <span aria-hidden="true">&times;</span>
             </button>
@@ -121,6 +127,7 @@ function MakeOffer(props) {
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
+                onClick={resetState}
               >
                 Close
               </button>
@@ -128,6 +135,7 @@ function MakeOffer(props) {
               <button
                 type="button"
                 className="btn btn-primary"
+                data-dismiss="modal"
                 onClick={createOffer}
               >
                 Make Offer

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import GameContext from "./utils/GameContext";
 import Nav from "./components/Nav";
-import LogIn from "./pages/LogIn.js";
+import { LogIn } from "./pages/LogIn.js";
 import Register from "./pages/Register.js";
 import Dashboard from "./pages/Dashboard.js";
 import Inventory from "./pages/Inventory.js";

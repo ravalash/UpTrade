@@ -50,7 +50,7 @@ export default {
   },
 
   addListing: function (listing) {
-    console.log(listing);
+    // console.log(listing);
     return axios.post("api/listing/", listing);
   },
 
@@ -60,7 +60,7 @@ export default {
     return axios.put(`api/listing/seller/${id}`, query);
   },
   newOffer: function (offer) {
-    console.log(offer);
+    // console.log(offer);
     return axios.post("api/transaction", offer);
   },
   //Loads all open offers for a listing by ID number

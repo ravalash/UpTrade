@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Dropdown from "../ConsoleDropdown";
 import Alert from "../Alert";
 import API from "../../utils/API";
+import { NotificationManager } from "react-notifications"
 
 function GameCard(props) {
     const [select, setSelect] = useState([]);
@@ -26,6 +27,7 @@ function GameCard(props) {
             .then((result) => API.addItem(result))
             .then((result) => {
                 console.log(result);
+                NotificationManager.success('Game added!');
                 if (result.status === 200) {
                     setSelect(false);
                     setSuccess(true);
