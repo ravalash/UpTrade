@@ -8,7 +8,7 @@ import '../App.css'
 
 function Dashboard(props) {
 
-const data = require("../exampleData");
+    const data = require("../exampleData");
 
 
 
