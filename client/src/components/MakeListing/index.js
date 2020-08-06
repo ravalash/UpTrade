@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import API from "../../utils/API";
 import GameTradeCard from "../GameTradeCard";
 import GameContext from "../../utils/GameContext";
-import { Link } from 'react-router-dom';
+import { NotificationManager } from 'react-notifications';
 
 function MakeListing(props) {
     const [games, setGames] = useState([]);
@@ -11,8 +11,11 @@ function MakeListing(props) {
     const { selectedListingGame } = useContext(GameContext);
 
     function resetState() {
-        setGames([])
-        setSearch("")
+        setTimeout(2000, resetThings)
+    }
+    function resetThings() {
+        setGames([]);
+        setSearch("");
         setListing([])
     }
 
@@ -29,7 +32,7 @@ function MakeListing(props) {
     }
 
 
-    const submitLiting = () => {
+    const submitListing = () => {
         const newListing = {
             active: 1,
             offer: 0,
@@ -40,7 +43,9 @@ function MakeListing(props) {
         };
         API.addListing(newListing)
             .then((res) => {
-                console.log(res);
+                console.log("added");
+                resetState()
+                NotificationManager.success('Game listed!');
             })
             .catch((err) => console.log(err));
     };
@@ -127,15 +132,14 @@ function MakeListing(props) {
                             >
                                 Close
               </button>
-                            <Link to="/mylistings">
-                                <button
-                                    type="button"
-                                    className="btn btn-primary"
-                                    onClick={submitLiting, resetState}
-                                >
-                                    Save changes
+                            <button
+                                type="button"
+                                className="btn btn-primary"
+                                data-dismiss="modal"
+                                onClick={submitListing}
+                            >
+                                Save changes
               </button>
-                            </Link>
                         </div>
                     </div>
                 </div>

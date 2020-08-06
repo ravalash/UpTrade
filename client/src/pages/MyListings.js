@@ -13,7 +13,6 @@ function Listings() {
         console.log("my listing use effect");
         API.loadMyListings()
             .then((res) => {
-                console.log(res);
                 setSavedListings(res.data);
             })
             .catch((err) => {
@@ -25,7 +24,6 @@ function Listings() {
         console.log("my offers use effect");
         API.loadAllBids()
             .then((res) => {
-                console.log(res.data);
                 setSavedBids(res.data);
             })
             .catch((err) => {
@@ -51,7 +49,7 @@ function Listings() {
                     </div>
                 </div>
                 <div className="col-9" id="new-listings-col">
-                    <MyListingsBox data={savedListings} bids={savedBids}/>
+                    <MyListingsBox data={savedListings} bids={savedBids} />
                 </div>
             </div>
         </div>
