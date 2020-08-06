@@ -37,8 +37,9 @@ router.route("/register").post(function (req, res) {
 
 // Logout GET route
 router.route("/logout").get(function (req, res) {
+  console.log('logging out')
   req.logout();
-  res.redirect("/");
+  res.status(200).json({message: 'logged out'})
 });
 
 // User Data GET route

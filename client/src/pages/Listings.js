@@ -25,20 +25,24 @@ function Listings(props) {
   //     return <Redirect to="/"/>;
   //   }
 
-  return (
-    <div className="container" id="dashboard-container">
-      <div className="row">
-        <div className="col-3" id="user-col">
-          <UserCard />
-          <hr></hr>
-          <div className="card" >
-            <Link to="/mylistings"><div className="card-body">
-              <h5 className="card-title show-my-listings">Show my listings</h5>
-            </div></Link>
-          </div>
-        </div>
-        <div className="col-9" id="new-listings-col">
-          <ListingsBox data={allListings} newOffer={props.newOffer} />
+
+    return (
+        <div className="container" id="dashboard-container">
+            <div className="row">
+                <div className="col-3" id="user-col">
+                    <UserCard />
+                    <hr></hr>
+                    <div className="card" >
+                        <Link to="/mylistings"><div className="card-body">
+                            <h5 className="card-title show-my-listings">Show my listings</h5>
+                        </div></Link>
+                    </div>
+                </div>
+                <div className="col-9" id="new-listings-col">
+                    <ListingsBox data={allListings} newOffer={props.newOffer} />
+                </div>
+            </div>
+
         </div>
       </div>
     </div>

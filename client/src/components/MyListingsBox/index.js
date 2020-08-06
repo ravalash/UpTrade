@@ -39,7 +39,7 @@ function MyListingsBox(props) {
 
         <hr />
         <div className="container" style={listingsTab ===1 ? {display:'block'} : {display: 'none'}}>
-          <MyListingItem data={props.data} />
+          <MyListingItem data={props.data} reviewOffer={props.reviewOffer}/>
         </div>
         <div className="container" style={listingsTab ===2 ? {display:'block'} : {display: 'none'}}>
         <MyofferItem bids={props.bids}/>
