@@ -13,6 +13,8 @@ import MakeListing from "./components/MakeListing";
 import MyListings from "./pages/MyListings";
 import MakeOffer from "./components/MakeOffer";
 import ReviewOffer from "./components/ReviewOffer";
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications';
 import "./App.css";
 
 function App() {
@@ -72,6 +74,7 @@ function App() {
             <Route exact path="/mylistings" component={MyListings} />
             <Route exact path="/faq" component={Help} />
           </Switch>
+          <NotificationContainer />
         </div>
       </GameContext.Provider>
     </Router>
