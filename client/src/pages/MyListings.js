@@ -7,9 +7,10 @@ import API from "../utils/API";
 
 function Listings() {
     const [savedListings, setSavedListings] = useState([]);
+    const [savedBids, setSavedBids] = useState([]);
 
     useEffect(() => {
-        console.log("listing use effect");
+        console.log("my listing use effect");
         API.loadMyListings()
             .then((res) => {
                 console.log(res);
@@ -19,6 +20,19 @@ function Listings() {
                 console.log(err);
             });
     }, []);
+
+    useEffect(() => {
+        console.log("my offers use effect");
+        API.loadAllBids()
+            .then((res) => {
+                console.log(res.data);
+                setSavedBids(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+
 
     return (
         <div className="container" id="dashboard-container">
@@ -37,7 +51,7 @@ function Listings() {
                     </div>
                 </div>
                 <div className="col-9" id="new-listings-col">
-                    <MyListingsBox data={savedListings} />
+                    <MyListingsBox data={savedListings} bids={savedBids}/>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ function Listings(props) {
 
   useEffect(() => {
     console.log("listing use effect");
-    API.loadAllListings()
+    API.loadAllSeller()
       .then((res) => {
         // console.log(res);
         setAllListings(res.data);
