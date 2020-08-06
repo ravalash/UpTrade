@@ -28,9 +28,10 @@ module.exports = {
   create: function (req, res) {
     req.body.UserId = req.user;
     db.Item.create(req.body)
-      .then((result) =>{
+      .then((result) => {
         console.log(result);
-         res.json(result)})
+        res.json(result)
+      })
       .catch((err) => {
         // console.log(res);
         res.status(422).json(err);
@@ -49,6 +50,7 @@ module.exports = {
   },
   // Deletes an item by id belonging to the current user
   remove: function (req, res) {
+    console.log(req.body)
     db.Item.destroy({
       where: {
         UserId: req.user.id,

@@ -13,9 +13,8 @@ export default {
     console.log(game);
     return axios.post("/api/item/", game);
   },
-  deleteItem: function (id) {
-    console.log(id)
-    return axios.delete("/api/item", id);
+  deleteItem: function (userid, gameid) {
+    return axios.delete("/api/item", userid, gameid);
   },
   loadAllItems: function () {
     return axios.get("api/item/");
@@ -49,11 +48,11 @@ export default {
   },
 
   addListing: function (listing) {
-    // console.log(listing);
+    console.log(listing);
     return axios.post("api/listing/", listing);
   },
   newOffer: function (offer) {
-    // console.log(offer);
+    console.log(offer);
     return axios.post("api/transaction", offer);
   },
 
