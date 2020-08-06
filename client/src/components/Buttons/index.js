@@ -51,3 +51,11 @@ export function ReviewOfferBtn(props) {
         </button>
     )
 }
+
+export function RemoveGameBtn(props) {
+    return (
+        <button type="button" className="btn btn-primary" id={props.id} onClick={props.handleRemoveGame}>
+            Remove Game
+        </button>
+    )
+}

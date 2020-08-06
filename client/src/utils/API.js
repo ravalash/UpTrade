@@ -9,10 +9,13 @@ export default {
     console.log("check login");
     return axios.get("/api/user");
   },
-
   addItem: function (game) {
     console.log(game);
     return axios.post("/api/item/", game);
+  },
+  deleteItem: function (id) {
+    console.log(id)
+    return axios.delete("/api/item", id);
   },
   loadAllItems: function () {
     return axios.get("api/item/");

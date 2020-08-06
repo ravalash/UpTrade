@@ -1,7 +1,16 @@
 import React from "react";
-import { GreenListingBtn } from '../Buttons'
+import { GreenListingBtn, RemoveGameBtn } from '../Buttons'
+import API from '../../utils/API'
+
 
 function InventoryItem(props) {
+
+  const handleRemoveGame = (e) => {
+    e.preventDefault();
+    let id = e.target.getAttribute("id")
+    API.deleteItem(id).then(window.location.reload(true))
+  }
+
   return (
     <div>
       {props.data.map((item) => (
@@ -32,7 +41,8 @@ function InventoryItem(props) {
                 <p>
                   {item.storyline} ... <a href={item.url}>[Read more]</a>
                 </p>
-                <GreenListingBtn name={item.name} id={item.id} chooseTrade={props.chooseTrade} /> <button type="button" className="btn btn-primary">Remove Game</button>
+                <GreenListingBtn name={item.name} id={item.id} chooseTrade={props.chooseTrade} />
+                <RemoveGameBtn handleRemoveGame={handleRemoveGame} id={item.id} />
               </div>
             </div>
             <br />
