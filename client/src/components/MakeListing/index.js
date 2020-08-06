@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import API from "../../utils/API";
 import GameTradeCard from "../GameTradeCard";
 import GameContext from "../../utils/GameContext";
+import { Link } from 'react-router-dom';
 
 function MakeListing(props) {
   const [games, setGames] = useState([]);
@@ -13,7 +14,7 @@ function MakeListing(props) {
     const { name, value } = event.target;
     setSearch({ [name]: value });
   }
-  
+
   function handleSearch(event) {
     event.preventDefault();
     API.searchGames(search.query).then((res) => {
@@ -107,8 +108,8 @@ function MakeListing(props) {
                   })}
                 </div>
               ) : (
-                <></>
-              )}
+                  <></>
+                )}
             </div>
             <div className="modal-footer">
               <button
@@ -118,13 +119,15 @@ function MakeListing(props) {
               >
                 Close
               </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={submitLiting}
-              >
-                Save changes
+              <Link to="/mylistings">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={submitLiting}
+                >
+                  Save changes
               </button>
+              </Link>
             </div>
           </div>
         </div>
