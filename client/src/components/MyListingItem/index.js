@@ -1,14 +1,9 @@
 import React, { useEffect } from "react";
 import { ReviewOfferBtn } from "../Buttons";
-import { NotificationManager } from 'react-notifications';
 
 function MyListingItem(props) {
   let isOffer = true;
-  console.log(props.data);
-
-  useEffect(() => {
-    NotificationManager.success('Here are all your listings:');
-  }, [])
+  console.log();
 
   return (
     <div>
