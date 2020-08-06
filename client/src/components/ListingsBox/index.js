@@ -3,9 +3,7 @@ import ListingItem from "../ListingItem"
 
 function ListingsBox(props) {
     const [listings, setListings] = useState(props.data);
-    useEffect(() => {
-        setListings(props.data)
-    })
+
     function handleTitleAZ() {
         setListings(props.data
             .sort(function (a, b) {
