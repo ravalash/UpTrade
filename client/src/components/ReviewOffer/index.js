@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import GameContext from "../../utils/GameContext";
 import OfferCard from "../OfferCard";
 import API from "../../utils/API";
-const data = require("../../exampleData");
+import { NotificationManager } from "react-notifications"
 
 function ReviewOffer(props) {
   const { reviewOfferListing } = useContext(GameContext);
@@ -27,6 +27,7 @@ function ReviewOffer(props) {
           (item) => item.id !== transactionID
         );
         setNewOffers(newOffersHolder);
+        NotificationManager.warning('Offer declined')
         console.log(newOffers);
         if (newOffersHolder.length === 0) {
           API.updateSellerListing(reviewOfferListing);
@@ -38,22 +39,25 @@ function ReviewOffer(props) {
   function acceptOffer(event) {
     const transactionID = parseInt(event.target.getAttribute("data-id"));
     console.log(transactionID);
-    API.acceptOffer(transactionID).then((result) => console.log(result));
-
-    // API.rejectOffer(transactionID)
-    //   .then((res) => {
-    //     console.log(res);
-    //     let newOffersHolder = newOffers.filter(
-    //       (item) => item.id !== transactionID
-    //     );
-    //     setNewOffers(newOffersHolder);
-    //     console.log(newOffers);
-    //     if (newOffersHolder.length === 0) {
-    //       API.updateSellerListing(reviewOfferListing);
-    //     }
-    //   })
-    //   .catch((err) => console.log(err));
+    API.acceptOffer(transactionID).then((result) => {
+      console.log(result)
+      NotificationManager.success('Trade complete!')
+    })
   }
+
+  // API.rejectOffer(transactionID)
+  //   .then((res) => {
+  //     console.log(res);
+  //     let newOffersHolder = newOffers.filter(
+  //       (item) => item.id !== transactionID
+  //     );
+  //     setNewOffers(newOffersHolder);
+  //     console.log(newOffers);
+  //     if (newOffersHolder.length === 0) {
+  //       API.updateSellerListing(reviewOfferListing);
+  //     }
+  //   })
+  //   .catch((err) => console.log(err));
 
   return (
     <div className="modal fade" id="review-offer" tabIndex="-1" role="dialog">

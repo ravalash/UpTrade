@@ -24,16 +24,16 @@ function OfferCard(props) {
                     </span>
                   </p>
                   <p>
-             {item.offered_item.storyline}
+                    {item.offered_item.storyline}
                     <a target="_blank" href={item.offered_item.url}>
                       {" "}
                       Read more...
                     </a>
                   </p>
-                  <button type="button" className="btn btn-success" data-id={item.id} onClick={props.acceptOffer}>
+                  <button type="button" className="btn btn-success" data-id={item.id} data-dismiss="modal" onClick={props.acceptOffer}>
                     Accept Offer
                   </button>
-                  <button type="button" className="btn btn-success" data-id={item.id} onClick={props.rejectOffer}>
+                  <button type="button" className="btn btn-success" data-id={item.id} data-dismiss="modal" onClick={props.rejectOffer}>
                     Reject Offer
                   </button>
                 </div>
@@ -42,7 +42,7 @@ function OfferCard(props) {
               <hr />
             </div>
           </div>
-        )) : <div/>}
+        )) : <div />}
     </div>
   );
 }
