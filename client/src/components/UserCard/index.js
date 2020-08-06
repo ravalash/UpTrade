@@ -46,11 +46,6 @@ function UserCard() {
       <div className="card-body">
         <h5 className="card-title">{userData.name}</h5>
         <hr />
-        <ul>
-          <li id="number-of-keys">{userData.keys} keys in inventory</li>
-          <li id="active-listings">{userData.listings} active listings</li>
-          <li id="trade-offers">{userData.offers} trade offers</li>
-        </ul>
         <p>
           <AddInvBtn /> <YellowListingBtn />
         </p>
