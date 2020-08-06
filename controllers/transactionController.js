@@ -19,6 +19,13 @@ module.exports = {
       .then((result) => res.json(result))
       .catch((err) => res.status(422).json(err));
   },
+
+  // Finds all active transactions where the user has bid on another user's listing
+  findActiveBids: function(req, res) {
+    db.Transaction.findAll({include:[{model: db.Listing, include:[{model: db.Item, required:true}], required:true}], where:{UserId: req.user }}).then(result =>{console.log(result); res.json(result)}).catch(err => res.status(422).json(err))
+
+  },
+
   // Finds one item by id owned by the current user
   findOneById: function (req, res) {
     db.Transaction.findOne({
@@ -90,7 +97,7 @@ module.exports = {
               transaction.status = 0;
               db.Transaction.create(transaction)
                 .then((result) => {
-                  res.json(result);
+                  db.Listing.update({offer:1}, {where:{id:transaction.ListingId}}).then(res.json(result)).catch(err=>res.status(422).json(err))
                 })
                 .catch((err) => res.status(422).json(err));
             } else {

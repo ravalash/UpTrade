@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/igdb/gameSearch/" + query);
   },
   checkLogin: function () {
-      console.log('check login');
+    console.log("check login");
     return axios.get("/api/user");
   },
 
@@ -32,34 +32,32 @@ export default {
     console.log("load my listings");
     return axios.get("api/listing/user");
   },
-  loadOneListing: function(id){
+  loadOneListing: function (id) {
     console.log(`load detasils for listing ${id}`);
-    return axios.get(`api/listing/byid/${id}`)
+    return axios.get(`api/listing/byid/${id}`);
   },
-  loadInfoListing: function(id){
+  loadInfoListing: function (id) {
     console.log(`load non secure information for listing ${id}`);
-    return axios.get(`api/listing/info/${id}`)
+    return axios.get(`api/listing/info/${id}`);
   },
-  
+  loadAllSeller: function () {
+    console.log(`load all listings from other users`);
+    return axios.get(`api/listing/seller`);
+  },
 
   addListing: function (listing) {
     console.log(listing);
     return axios.post("api/listing/", listing);
   },
-  newOffer: function(offer) {
+  newOffer: function (offer) {
     console.log(offer);
     return axios.post("api/transaction", offer);
-  }
-};
+  },
 
-// searchGames: function (query) {
-//     return axios({
-//         url: 'https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games',
-//         method: 'POST',
-//         headers: {
-//             'Accept': 'application/json',
-//             'user-key': process.env.REACT_APP_IGDB_KEY,
-//         },
-//         data: 'fields name,id; search "' + query + '";'
-//     }).then(res => { return res.data })
-// }
+  loadAllBids: function () {
+    console.log(
+      "load all transactions where user has made an offer and the listing is active"
+    );
+    return axios.get("api/transaction/bids");
+  },
+};

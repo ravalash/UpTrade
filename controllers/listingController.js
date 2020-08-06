@@ -1,4 +1,6 @@
 const db = require("../models");
+const { Op } = require("sequelize");
+
 
 // Defining methods for the listingController
 module.exports = {
@@ -20,6 +22,25 @@ module.exports = {
       })
       .catch((err) => res.status(422).json(err));
   },
+  //Finds all listings owned by anyone else
+findAllSeller: function(req,res){
+  db.Listing.findAll({
+    include: [
+      {
+        model: db.Item,
+        required: true,
+      },
+    ],
+    where: {UserId: {[Op.ne]: req.user}}
+  })
+    .then((result) => {
+      result.forEach((element) => {
+        element.request = JSON.parse(element.request);
+      });
+      res.json(result);
+    })
+    .catch((err) => res.status(422).json(err));
+},
 
   findAllById: function (req, res) {
     console.log("find all by id");
