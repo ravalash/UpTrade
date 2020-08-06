@@ -13,6 +13,7 @@ function Listings(props) {
       .then((res) => {
         // console.log(res);
         setAllListings(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
