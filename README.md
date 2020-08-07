@@ -2,7 +2,7 @@
 
 > UpTrade is the new video game trading app for all gamers. With UpTrade, exchange your digital game keys for games that you really want. Create an inventory of games that you wish to trade, listings with games that you would like to get, see info about your favorite games and connect with other players around the world! 
 
-![GitHub stars](https://img.shields.io/github/stars/dmjohnspor/https://github.com/ravalash/UpTrade?style=social)
+![GitHub stars](https://img.shields.io/github/stars/ravalash/https://github.com/ravalash/UpTrade?style=social)
 ![GitHub repo size](https://img.shields.io/github/repo-size/dmjohnspor/HW19_react_employee_directory)
 ![Star Wars](https://img.shields.io/badge/trade%20with%20-upTrade-blue)
 
