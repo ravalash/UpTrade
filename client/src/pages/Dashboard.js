@@ -31,7 +31,7 @@ function Dashboard(props) {
                 </div>
                 <div className="col-6" id="new-listings-col">
                     <NewListingsBox data={allListings} newOffer={props.newOffer} />
-                </div>
+c                </div>
                 <div className="col-3" id="my-listings-col">
                     {/* <MyListingsBox /> */}
                 </div>
