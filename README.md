@@ -21,7 +21,7 @@
 
 ## Demo
 
-See the app live <a href="https://directory-by-giannis.herokuapp.com/" target="_blank">`here`</a>.
+See the app live <a href="https://uptrayde-demo.herokuapp.com/" target="_blank">`here`</a>.
 
 ![](assets/demo_gif_1.gif)
 
