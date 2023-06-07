@@ -1,4 +1,5 @@
-const { Sequelize } = require(".");
+// Modified to supress error 06/07/2023
+// const { Sequelize } = require(".");
 
 module.exports = function (sequelize, DataTypes) {
   const Listing = sequelize.define("Listing", {

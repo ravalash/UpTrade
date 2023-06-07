@@ -28,18 +28,25 @@ router.route("/register").post(function (req, res) {
   })
     // .then((dbUser) => { res.json(dbUser) })
     .then(() => {
+      console.log("user create successful");
       res.redirect(307, "/api/user/login");
     })
     .catch((err) => {
+      console.log(err);
       res.status(401).json(err);
     });
 });
 
 // Logout GET route
-router.route("/logout").get(function (req, res) {
+router.route("/logout").get(function (req, res, next) {
   console.log('logging out')
-  req.logout();
-  res.status(200).json({message: 'logged out'})
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.status(200).json({message: 'logged out'});
+  });
+
+//  req.logout();
+//  res.status(200).json({message: 'logged out'})
 });
 
 // User Data GET route

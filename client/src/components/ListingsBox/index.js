@@ -4,6 +4,15 @@ import ListingItem from "../ListingItem"
 function ListingsBox(props) {
     const [listings, setListings] = useState(props.data);
 
+    // useEffect(() => {
+    //     console.log("listing box use effect");
+    //     console.log(props);
+    //     showAll();
+    //     console.log(listings);
+    //       },
+    //    []);
+ 
+
     function handleTitleAZ() {
         setListings(props.data
             .sort(function (a, b) {
@@ -82,29 +91,29 @@ function ListingsBox(props) {
                             </div>
                             <div className="form-check form-check-inline">
                                 <input className="form-check-input" type="radio" name="platform-filter" id="epic-platform-choice" value="option3" onClick={showEpic} />
-                                <label className="form-check-label" htmlFor="epic-platform-choice3">Epic</label>
+                                <label className="form-check-label" htmlFor="epic-platform-choice">Epic</label>
                             </div>
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="platform-filter" id="nintendo-platform-choice" value="option1" onClick={showNinty} />
+                                <input className="form-check-input" type="radio" name="platform-filter" id="nintendo-platform-choice" value="option4" onClick={showNinty} />
                                 <label className="form-check-label" htmlFor="nintendo-platform-choice">Nintendo Switch</label>
                             </div>
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="platform-filter" id="ps4-platform-choice" value="option2" onClick={showps4} />
+                                <input className="form-check-input" type="radio" name="platform-filter" id="ps4-platform-choice" value="option5" onClick={showps4} />
                                 <label className="form-check-label" htmlFor="ps4-platform-choice">PlayStation 4</label>
                             </div>
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="platform-filter" id="xbox-platform-choice" value="option3" onClick={showXbox} />
+                                <input className="form-check-input" type="radio" name="platform-filter" id="xbox-platform-choice" value="option6" onClick={showXbox} />
                                 <label className="form-check-label" htmlFor="xbox-platform-choice">Xbox One</label>
                             </div>
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="platform-filter" id="show-all" value="option3" onClick={showAll} />
-                                <label className="form-check-label" htmlFor="xbox-platform-choice">Show All</label>
+                                <input className="form-check-input" type="radio" name="platform-filter" id="show-all" value="option7" onClick={showAll} />
+                                <label className="form-check-label" htmlFor="show-all">Show All</label>
                             </div>
                         </div>
                     </div>
                     <div className="col-6 sort-by">
                         <div className="sort-by-toggle">
-                            <label for="sort-by-toggle">Sort by:</label>
+                            <label htmlFor="sort-by-toggle">Sort by:</label>
                             <br></br>
 
                             <button className='btn btn-sm btn-dark' onClick={handleTitleAZ}>&#x2191;</button>
