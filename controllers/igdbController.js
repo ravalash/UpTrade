@@ -7,9 +7,10 @@ module.exports = {
     const data = `search "${req.params.query}"; fields *;where  platforms = (6,49,130,167);`;
     const query = {
       method: "post",
-      url: "https://api-v3.igdb.com/games",
+      url: "https://api.igdb.com/v4/games/",
       headers: {
-        "user-key": process.env.IGDB_KEY,
+        "Authorization": process.env.IGDB_KEY,
+        "Client-ID": process.env.IGDB_CLIENT,
         Accept: "application/json",
         "Content-Type": "text/plain",
         withCredentials: true
@@ -31,9 +32,10 @@ module.exports = {
     const data = `fields *; where id = ${req.params.query}; `;
     const query = {
       method: "post",
-      url: "https://api-v3.igdb.com/covers",
+      url: "https://api.igdb.com/v4/covers",
       headers: {
-        "user-key": process.env.IGDB_KEY,
+        "Authorization": process.env.IGDB_KEY,
+        "Client-ID": process.env.IGDB_CLIENT,
         Accept: "application/json",
         "Content-Type": "text/plain",
         withCredentials: true
